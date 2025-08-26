@@ -14,8 +14,10 @@ function renderProjects() {
     }
 }
 
-function renderTasks(project) {
-    alert("You clicked on " + project);
+function renderTasks(projectName) {
+    //alert("You clicked on " + project);
+    let project = root.projectList.map(i => i.name).indexOf(projectName);
+    alert(project);
 }
 
 export { renderProjects };

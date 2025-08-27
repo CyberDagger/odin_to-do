@@ -2,6 +2,7 @@ import { root } from "./structure.js";
 
 const projectMenu = document.querySelector("#project-list");
 const taskField = document.querySelector("#content");
+const taskWindow = document.querySelector("#view-task");
 
 function renderProjects() {
     for (let i = 0; i < root.projectList.length; i++) {
@@ -22,6 +23,7 @@ function renderTasks(projectName) {
     for (let i = 0; i < project.taskList.length; i++) {
         let taskBlock = document.createElement("div");
         taskBlock.classList.add("task-block");
+        taskBlock.setAttribute("data-title", project.taskList[i].title);
         
         // Title
         let taskTitle = document.createElement("p");
@@ -36,8 +38,22 @@ function renderTasks(projectName) {
         taskPriority.textContent = project.taskList[i].priority;
         taskBlock.appendChild(taskPriority);
 
+        //taskBlock.addEventListener("click", (e) => renderTaskWindow(project, e.target.getAttribute("data-title")));
+        taskBlock.addEventListener("click", (e) => alert(e.target.getAttribute("data-title")));
         taskField.appendChild(taskBlock);
     }
+}
+
+function renderTaskWindow(project, taskName) {
+    alert(taskName);
+    let task = project.taskList[project.taskList.map(i => i.name).indexOf(taskName)];
+
+    let taskTitle = document.createElement("p");
+    //taskTitle.textContent = project.taskList[task].title;
+    taskTitle.textContent = task;
+    taskWindow.appendChild(taskTitle);
+
+    taskWindow.showModal();
 }
 
 function clearTasks() {

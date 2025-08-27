@@ -16,6 +16,8 @@ function renderProjects() {
 }
 
 function renderTasks(projectName) {
+    clearTasks();
+
     let project = root.projectList[root.projectList.map(i => i.name).indexOf(projectName)];
     for (let i = 0; i < project.taskList.length; i++) {
         let taskBlock = document.createElement("div");
@@ -36,6 +38,10 @@ function renderTasks(projectName) {
 
         taskField.appendChild(taskBlock);
     }
+}
+
+function clearTasks() {
+    taskField.innerHTML = "";
 }
 
 export { renderProjects };

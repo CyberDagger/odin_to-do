@@ -38,20 +38,38 @@ function renderTasks(projectName) {
         taskPriority.textContent = project.taskList[i].priority;
         taskBlock.appendChild(taskPriority);
 
-        //taskBlock.addEventListener("click", (e) => renderTaskWindow(project, e.target.getAttribute("data-title")));
-        taskBlock.addEventListener("click", (e) => alert(e.currentTarget.dataset.title));
+        taskBlock.addEventListener("click", (e) => renderTaskWindow(project, e.currentTarget.dataset.title));
+        //taskBlock.addEventListener("click", (e) => alert(e.currentTarget.dataset.title));
         taskField.appendChild(taskBlock);
     }
 }
 
 function renderTaskWindow(project, taskName) {
-    alert(taskName);
-    let task = project.taskList[project.taskList.map(i => i.name).indexOf(taskName)];
+    let task = project.taskList[project.taskList.map(i => i.title).indexOf(taskName)];
 
     let taskTitle = document.createElement("p");
-    //taskTitle.textContent = project.taskList[task].title;
-    taskTitle.textContent = task;
+    taskTitle.textContent = task.title;
     taskWindow.appendChild(taskTitle);
+
+    let taskDesc = document.createElement("p");
+    taskDesc.textContent = task.description;
+    taskWindow.appendChild(taskDesc);
+
+    let taskDate = document.createElement("p");
+    taskDate.textContent = task.dueDate;
+    taskWindow.appendChild(taskDate);
+
+    let taskPriority = document.createElement("p");
+    taskPriority.textContent = task.priority;
+    taskWindow.appendChild(taskPriority);
+
+    let taskNotes = document.createElement("p");
+    taskNotes.textContent = task.notes;
+    taskWindow.appendChild(taskNotes);
+
+    let taskCheck = document.createElement("p");
+    taskCheck.textContent = task.check;
+    taskWindow.appendChild(taskCheck);
 
     taskWindow.showModal();
 }

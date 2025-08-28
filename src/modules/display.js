@@ -10,7 +10,7 @@ function renderProjects() {
         let itemButton = document.createElement("button");
         itemButton.textContent = root.projectList[i].name;
         itemButton.setAttribute("data-name", root.projectList[i].name);
-        itemButton.addEventListener("click", (e) => renderTasks(e.target.getAttribute("data-name")));
+        itemButton.addEventListener("click", (e) => renderTasks(e.currentTarget.dataset.name));
         item.appendChild(itemButton);
         projectMenu.appendChild(item);
     }
@@ -39,7 +39,7 @@ function renderTasks(projectName) {
         taskBlock.appendChild(taskPriority);
 
         //taskBlock.addEventListener("click", (e) => renderTaskWindow(project, e.target.getAttribute("data-title")));
-        taskBlock.addEventListener("click", (e) => alert(e.target.getAttribute("data-title")));
+        taskBlock.addEventListener("click", (e) => alert(e.currentTarget.dataset.title));
         taskField.appendChild(taskBlock);
     }
 }

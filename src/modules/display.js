@@ -12,6 +12,10 @@ const cardPriority = document.querySelector("#card-priority");
 const cardNotes = document.querySelector("#card-notes");
 const cardCheck = document.querySelector("#card-check");
 
+const btnClose = document.querySelector("#button-close");
+
+btnClose.addEventListener("click", () => taskWindow.close());
+
 function renderProjects() {
     for (let i = 0; i < root.projectList.length; i++) {
         let item = document.createElement("li");
@@ -52,9 +56,18 @@ function renderTasks(projectName) {
     }
 }
 
+function clearTaskWindow() {
+    cardTitle.innerHTML = "";
+    cardDescription.innerHTML = "";
+    cardDate.innerHTML = "";
+    cardPriority.innerHTML = "";
+    cardNotes.innerHTML = "";
+    cardCheck.innerHTML = "";
+}
+
 function renderTaskWindow(project, taskName) {
     let task = project.taskList[project.taskList.map(i => i.title).indexOf(taskName)];
-
+    clearTaskWindow();
     // Title
     let taskTitle = document.createElement("h1");
     taskTitle.textContent = task.title;

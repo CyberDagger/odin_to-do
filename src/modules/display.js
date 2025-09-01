@@ -2,7 +2,15 @@ import { root } from "./structure.js";
 
 const projectMenu = document.querySelector("#project-list");
 const taskField = document.querySelector("#content");
+
 const taskWindow = document.querySelector("#view-task");
+const taskCard = document.querySelector("#task-card");
+const cardTitle = document.querySelector("#card-title");
+const cardDescription = document.querySelector("#card-desc");
+const cardDate = document.querySelector("#card-date");
+const cardPriority = document.querySelector("#card-priority");
+const cardNotes = document.querySelector("#card-notes");
+const cardCheck = document.querySelector("#card-check");
 
 function renderProjects() {
     for (let i = 0; i < root.projectList.length; i++) {
@@ -47,29 +55,30 @@ function renderTasks(projectName) {
 function renderTaskWindow(project, taskName) {
     let task = project.taskList[project.taskList.map(i => i.title).indexOf(taskName)];
 
-    let taskTitle = document.createElement("p");
+    // Title
+    let taskTitle = document.createElement("h1");
     taskTitle.textContent = task.title;
-    taskWindow.appendChild(taskTitle);
-
+    cardTitle.appendChild(taskTitle);
+    // Description
     let taskDesc = document.createElement("p");
     taskDesc.textContent = task.description;
-    taskWindow.appendChild(taskDesc);
-
+    cardDescription.appendChild(taskDesc);
+    // Due Date
     let taskDate = document.createElement("p");
     taskDate.textContent = task.dueDate;
-    taskWindow.appendChild(taskDate);
-
+    cardDate.appendChild(taskDate);
+    // Priority
     let taskPriority = document.createElement("p");
     taskPriority.textContent = task.priority;
-    taskWindow.appendChild(taskPriority);
-
+    cardPriority.appendChild(taskPriority);
+    // Notes
     let taskNotes = document.createElement("p");
     taskNotes.textContent = task.notes;
-    taskWindow.appendChild(taskNotes);
-
+    cardNotes.appendChild(taskNotes);
+    // Completion
     let taskCheck = document.createElement("p");
     taskCheck.textContent = task.check;
-    taskWindow.appendChild(taskCheck);
+    cardCheck.appendChild(taskCheck);
 
     taskWindow.showModal();
 }

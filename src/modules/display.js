@@ -1,5 +1,8 @@
+// Imports
 import { root } from "./structure.js";
 
+
+// DOM Aliases
 const projectMenu = document.querySelector("#project-list");
 const taskField = document.querySelector("#content");
 
@@ -14,9 +17,20 @@ const cardNotes = document.querySelector("#card-notes");
 const cardCheck = document.querySelector("#card-check");
 
 const btnNewProject = document.querySelector("#button-new-project");
+const fieldProjectName = document.querySelector("#project-name")
+const btnSubmitProject = document.querySelector("#new-task-submit");
+const btnCancelProject = document.querySelector("#new-task-cancel");
+
 const btnCloseTask = document.querySelector("#button-close-task");
 
 btnNewProject.addEventListener("click", () => newProject.showModal());
+btnSubmitProject.addEventListener("click", (e) => {
+    e.preventDefault();
+    root.addProject(fieldProjectName.value);
+    newProject.close();
+});
+btnCancelProject.addEventListener("click", () => newProject.close())
+
 btnCloseTask.addEventListener("click", () => taskWindow.close());
 
 function renderProjects() {

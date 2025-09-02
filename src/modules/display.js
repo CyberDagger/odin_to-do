@@ -6,8 +6,6 @@ import { root } from "./structure.js";
 const projectMenu = document.querySelector("#project-list");
 const taskField = document.querySelector("#content");
 
-const newProject = document.querySelector("#new-project");
-
 const taskWindow = document.querySelector("#view-task");
 const cardTitle = document.querySelector("#card-title");
 const cardDate = document.querySelector("#card-date");
@@ -16,11 +14,13 @@ const cardNotes = document.querySelector("#card-notes");
 const cardCheck = document.querySelector("#card-check");
 const btnCloseTask = document.querySelector("#button-close-task");
 
+const newProject = document.querySelector("#new-project");
 const btnNewProject = document.querySelector("#button-new-project");
 const fieldProjectName = document.querySelector("#project-name");
 const btnSubmitProject = document.querySelector("#new-task-submit");
 const btnCancelProject = document.querySelector("#new-task-cancel");
 
+const newTask = document.querySelector("#new-task");
 const btnNewTask = document.querySelector("#button-new-task");
 
 btnNewProject.addEventListener("click", () => newProject.showModal());
@@ -31,7 +31,7 @@ btnSubmitProject.addEventListener("click", (e) => {
 });
 btnCancelProject.addEventListener("click", () => newProject.close())
 
-btnNewTask.addEventListener("click", () => alert("New Task"));
+btnNewTask.addEventListener("click", () => newTask.showModal());
 
 btnCloseTask.addEventListener("click", () => taskWindow.close());
 

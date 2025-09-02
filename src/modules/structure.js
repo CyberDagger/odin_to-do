@@ -20,14 +20,6 @@ class Project {
     }
 }
 
-/*
-class Folder {
-    constructor() {
-        this.projectList = [];
-    }
-}
-*/
-
 const root = {
     projectList: [],
     currentProject: null,

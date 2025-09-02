@@ -17,8 +17,8 @@ const btnCloseTask = document.querySelector("#button-close-task");
 const newProject = document.querySelector("#new-project");
 const btnNewProject = document.querySelector("#button-new-project");
 const fieldProjectName = document.querySelector("#project-name");
-const btnSubmitProject = document.querySelector("#new-task-submit");
-const btnCancelProject = document.querySelector("#new-task-cancel");
+const btnSubmitProject = document.querySelector("#new-project-submit");
+const btnCancelProject = document.querySelector("#new-project-cancel");
 
 const newTask = document.querySelector("#new-task");
 const btnNewTask = document.querySelector("#button-new-task");

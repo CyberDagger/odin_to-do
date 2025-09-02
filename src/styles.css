@@ -14,18 +14,20 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 8px;
+    background-color: lightblue;
 }
 
 #view-task {
     justify-self: center;
     align-self: center;
+    background-color: lightsteelblue;
 }
 
 #task-card {
     width: 800px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 #card-title {

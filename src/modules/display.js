@@ -58,7 +58,6 @@ function renderTasks(projectName) {
 
 function clearTaskWindow() {
     cardTitle.innerHTML = "";
-    cardDescription.innerHTML = "";
     cardDate.innerHTML = "";
     cardPriority.innerHTML = "";
     cardNotes.innerHTML = "";
@@ -72,10 +71,6 @@ function renderTaskWindow(project, taskName) {
     let taskTitle = document.createElement("h1");
     taskTitle.textContent = task.title;
     cardTitle.appendChild(taskTitle);
-    // Description
-    let taskDesc = document.createElement("p");
-    taskDesc.textContent = task.description;
-    cardDescription.appendChild(taskDesc);
     // Due Date
     let taskDate = document.createElement("p");
     taskDate.textContent = task.dueDate;

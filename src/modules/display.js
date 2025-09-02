@@ -17,21 +17,27 @@ const btnClose = document.querySelector("#button-close");
 btnClose.addEventListener("click", () => taskWindow.close());
 
 function renderProjects() {
+    projectMenu.innerHTML = "";
     for (let i = 0; i < root.projectList.length; i++) {
         let item = document.createElement("li");
         let itemButton = document.createElement("button");
         itemButton.textContent = root.projectList[i].name;
         itemButton.setAttribute("data-name", root.projectList[i].name);
-        itemButton.addEventListener("click", (e) => renderTasks(e.currentTarget.dataset.name));
+        itemButton.addEventListener("click", (e) => selectProject(e.currentTarget.dataset.name));
         item.appendChild(itemButton);
         projectMenu.appendChild(item);
     }
 }
 
-function renderTasks(projectName) {
+function selectProject(projectName) {
+    let project = root.projectList[root.projectList.map(i => i.name).indexOf(projectName)];
+    root.currentProject = project;
+    renderTasks(project);
+}
+
+function renderTasks(project) {
     clearTasks();
 
-    let project = root.projectList[root.projectList.map(i => i.name).indexOf(projectName)];
     for (let i = 0; i < project.taskList.length; i++) {
         let taskBlock = document.createElement("div");
         taskBlock.classList.add("task-block");

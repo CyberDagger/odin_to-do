@@ -6,7 +6,7 @@ import { root } from "./structure.js";
 const projectMenu = document.querySelector("#project-list");
 const taskField = document.querySelector("#content");
 
-const newProject = document.querySelector("#new-task");
+const newProject = document.querySelector("#new-project");
 
 const taskWindow = document.querySelector("#view-task");
 const cardTitle = document.querySelector("#card-title");

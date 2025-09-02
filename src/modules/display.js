@@ -3,18 +3,21 @@ import { root } from "./structure.js";
 const projectMenu = document.querySelector("#project-list");
 const taskField = document.querySelector("#content");
 
+const newProject = document.querySelector("#new-task");
+
 const taskWindow = document.querySelector("#view-task");
 const taskCard = document.querySelector("#task-card");
 const cardTitle = document.querySelector("#card-title");
-const cardDescription = document.querySelector("#card-desc");
 const cardDate = document.querySelector("#card-date");
 const cardPriority = document.querySelector("#card-priority");
 const cardNotes = document.querySelector("#card-notes");
 const cardCheck = document.querySelector("#card-check");
 
-const btnClose = document.querySelector("#button-close");
+const btnNewProject = document.querySelector("#button-new-project");
+const btnCloseTask = document.querySelector("#button-close-task");
 
-btnClose.addEventListener("click", () => taskWindow.close());
+btnNewProject.addEventListener("click", () => newProject.showModal());
+btnCloseTask.addEventListener("click", () => taskWindow.close());
 
 function renderProjects() {
     projectMenu.innerHTML = "";

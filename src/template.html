@@ -8,6 +8,7 @@
 <body>
     <div class="sidebar">
         <ul id="project-list"></ul>
+        <button id="button-new-project">New Project</button>
     </div>
     <div id="content"></div>
 
@@ -19,9 +20,18 @@
             <div type="text" id="card-notes"></div>
             <div id="card-check"></div>
             <div id="task-buttons">
-                <button id="button-close">Close</button>
+                <button id="button-close-task">Close</button>
             </div>
         </div>
+    </dialog>
+
+    <dialog id="new-task">
+        <form action="">
+            <label for="project-name">Project Name:</label>
+            <input type="text" id="project-name" name="project-name">
+            <button id="new-task-submit">Create Task</button>
+            <button id="new-task-cancel">Cancel</button>
+        </form>
     </dialog>
 </body>
 </html>

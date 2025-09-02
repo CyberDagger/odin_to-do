@@ -17,7 +17,7 @@ body {
     background-color: lightblue;
 }
 
-#view-task {
+dialog {
     justify-self: center;
     align-self: center;
     background-color: lightsteelblue;

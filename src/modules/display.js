@@ -86,7 +86,7 @@ function renderTasks(project) {
         taskBlock.appendChild(taskTitle);
         // Due Date
         let taskDate = document.createElement("p");
-        taskDate.textContent = format(project.taskList[i].dueDate, "P");
+        taskDate.textContent = format(project.taskList[i].dueDate, "dd/MM/yyyy");
         taskBlock.appendChild(taskDate);
         // Priority
         let taskPriority = document.createElement("p");
@@ -116,7 +116,7 @@ function renderTaskWindow(project, taskName) {
     cardTitle.appendChild(taskTitle);
     // Due Date
     let taskDate = document.createElement("p");
-    taskDate.textContent = format(task.dueDate, "P");
+    taskDate.textContent = format(task.dueDate, "dd/MM/yyyy");
     cardDate.appendChild(taskDate);
     // Priority
     let taskPriority = document.createElement("p");

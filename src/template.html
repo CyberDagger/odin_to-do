@@ -7,8 +7,8 @@
 </head>
 <body>
     <div class="sidebar">
-        <ul id="project-list"></ul>
         <button id="button-new-project">New Project</button>
+        <ul id="project-list"></ul> 
     </div>
     <div>
         <div class="header">
@@ -44,11 +44,15 @@
             <label for="task-name">Task Name:</label>
             <input type="text" id="task-name" name="task-name">
             <label for="task-date">Due Date:</label>
-            <input type="text" id="task-date" name="task-date">
+            <input type="date" id="task-date" name="task-date">
             <label for="task-priority">Priority:</label>
-            <input type="text" id="task-priority" name="task-priority">
+            <select id="task-priority" name="task-priority">
+                <option value="high" id="pri-high">High</option>
+                <option value="medium" id="pri-med">Medium</option>
+                <option value="low" id="pri-low">Low</option>
+            </select>
             <label for="task-notes">Notes:</label>
-            <input type="text" id="task-notes" name="task-notes">
+            <textarea id="task-notes" name="task-notes"></textarea>
             <div id="create-task-buttons">
                 <button type="submit" id="new-task-submit">Create Task</button>
                 <button type="button" id="new-task-cancel">Cancel</button>

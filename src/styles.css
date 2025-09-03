@@ -68,3 +68,16 @@ dialog {
     grid-column: 1/3;
     justify-self: center;
 }
+
+option {
+    appearance: none;
+}
+option#pri-high {
+    color: red;
+}
+option#pri-med {
+    color: orange;
+}
+option#pri-low {
+    color: green;
+}

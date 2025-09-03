@@ -23,6 +23,24 @@ const btnCancelProject = document.querySelector("#new-project-cancel");
 const newTask = document.querySelector("#new-task");
 const btnNewTask = document.querySelector("#button-new-task");
 
+const fieldTaskPriority = document.querySelector("#task-priority");
+
+fieldTaskPriority.addEventListener("change", function() {
+    switch (this.value) {
+        case "high":
+            this.style.color = "red";
+            break;
+        case "medium":
+            this.style.color = "orange";
+            break;
+        case "low":
+            this.style.color = "green";
+            break;
+        default:
+            this.style.color = "black";
+    }
+})
+
 btnNewProject.addEventListener("click", () => newProject.showModal());
 btnSubmitProject.addEventListener("click", (e) => {
     e.preventDefault();

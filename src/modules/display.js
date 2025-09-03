@@ -116,7 +116,7 @@ function renderTaskWindow(project, taskName) {
     cardTitle.appendChild(taskTitle);
     // Due Date
     let taskDate = document.createElement("p");
-    taskDate.textContent = task.dueDate;
+    taskDate.textContent = format(task.dueDate, "P");
     cardDate.appendChild(taskDate);
     // Priority
     let taskPriority = document.createElement("p");

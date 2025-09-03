@@ -2,7 +2,7 @@ import "./reset.css";
 import "./styles.css";
 
 import { Task, Project, root } from "./modules/structure.js";
-import { renderProjects } from "./modules/display.js";
+import { renderProjects, clearTasks } from "./modules/display.js";
 
 let testTask = new Task("Test Task", "This is a task.", "02/05/2025", "High", "");
 console.log(testTask);
@@ -19,4 +19,5 @@ root.projectList[1].addTask("Test Task 4", "02/05/2025", "High", "Note 4");
 root.projectList[1].addTask("Test Task 5", "02/05/2025", "High", "Note 5");
 root.projectList[2].addTask("Test Task 6", "02/05/2025", "High", "Note 6");
 
+clearTasks();
 renderProjects();

@@ -1,4 +1,4 @@
-import { renderProjects } from "./display";
+import { renderProjects, renderTasks } from "./display";
 
 class Task {
     constructor(title, dueDate, priority, notes) {
@@ -17,6 +17,7 @@ class Project {
     }
     addTask (title, dueDate, priority, notes) {
         this.taskList.push(new Task(title, dueDate, priority, notes));
+        renderTasks(this);
     }
 }
 

@@ -14,16 +14,20 @@ const cardNotes = document.querySelector("#card-notes");
 const cardCheck = document.querySelector("#card-check");
 const btnCloseTask = document.querySelector("#button-close-task");
 
-const newProject = document.querySelector("#new-project");
 const btnNewProject = document.querySelector("#button-new-project");
+const newProject = document.querySelector("#new-project");
 const fieldProjectName = document.querySelector("#project-name");
 const btnSubmitProject = document.querySelector("#new-project-submit");
 const btnCancelProject = document.querySelector("#new-project-cancel");
 
-const newTask = document.querySelector("#new-task");
 const btnNewTask = document.querySelector("#button-new-task");
-
+const newTask = document.querySelector("#new-task");
+const fieldTaskName = document.querySelector("#task-name");
+const fieldTaskDate = document.querySelector("#task-date");
 const fieldTaskPriority = document.querySelector("#task-priority");
+const fieldTaskNotes = document.querySelector("#task-notes");
+const btnSubmitTask = document.querySelector("#new-task-submit");
+const btnCancelTask = document.querySelector("#new-task-cancel");
 
 fieldTaskPriority.addEventListener("change", function() {
     switch (this.value) {
@@ -51,6 +55,12 @@ btnSubmitProject.addEventListener("click", (e) => {
 btnCancelProject.addEventListener("click", () => newProject.close())
 
 btnNewTask.addEventListener("click", () => newTask.showModal());
+btnSubmitTask.addEventListener("click", (e) => {
+    e.preventDefault();
+    root.currentProject.addTask(fieldTaskName.value, fieldTaskDate.value, fieldTaskPriority.value, fieldTaskNotes.value);
+    newTask.close();
+});
+btnCancelTask.addEventListener("click", () => newTask.close())
 
 btnCloseTask.addEventListener("click", () => taskWindow.close());
 
@@ -143,4 +153,4 @@ function clearTasks() {
     taskField.innerHTML = "";
 }
 
-export { renderProjects };
+export { renderProjects, renderTasks, clearTasks };

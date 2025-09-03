@@ -39,7 +39,8 @@ fieldTaskPriority.addEventListener("change", function() {
         default:
             this.style.color = "black";
     }
-})
+});
+fieldTaskPriority.dispatchEvent(new Event("change"));
 
 btnNewProject.addEventListener("click", () => newProject.showModal());
 btnSubmitProject.addEventListener("click", (e) => {

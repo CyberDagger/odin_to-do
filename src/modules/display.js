@@ -1,6 +1,6 @@
 // Imports
 import { root } from "./structure.js";
-
+import { format } from "date-fns";
 
 // DOM Aliases
 const projectMenu = document.querySelector("#project-list");
@@ -86,7 +86,7 @@ function renderTasks(project) {
         taskBlock.appendChild(taskTitle);
         // Due Date
         let taskDate = document.createElement("p");
-        taskDate.textContent = project.taskList[i].dueDate;
+        taskDate.textContent = format(project.taskList[i].dueDate, "P");
         taskBlock.appendChild(taskDate);
         // Priority
         let taskPriority = document.createElement("p");

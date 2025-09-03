@@ -92,6 +92,10 @@ function renderTasks(project) {
         let taskPriority = document.createElement("p");
         taskPriority.textContent = project.taskList[i].priority;
         taskBlock.appendChild(taskPriority);
+        // Completed
+        let taskCheck = document.createElement("p");
+        taskCheck.textContent = project.taskList[i].check;
+        taskBlock.appendChild(taskCheck);
 
         taskBlock.addEventListener("click", (e) => renderTaskWindow(project, e.currentTarget.dataset.title));
         //taskBlock.addEventListener("click", (e) => alert(e.currentTarget.dataset.title));

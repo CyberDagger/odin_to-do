@@ -21,4 +21,5 @@ root.projectList[2].addTask("Test Task 6", "02/05/2025", "High", "Note 6");
 
 clearTasks();
 renderProjects();
+root.currentProject = null;
 renderHeaderProject();

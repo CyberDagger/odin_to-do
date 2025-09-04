@@ -26,6 +26,11 @@ const fieldProjectName = document.querySelector("#new-project-name");
 const btnSubmitProject = document.querySelector("#new-project-submit");
 const btnCancelProject = document.querySelector("#new-project-cancel");
 
+const renameProject = document.querySelector("#rename-project");
+const fieldRenameProjectName = document.querySelector("#rename-project-name");
+const btnSubmitRenameProject = document.querySelector("#rename-project-submit");
+const btnCancelRenameProject = document.querySelector("#rename-project-cancel");
+
 const headerProject = document.querySelector("#title-project");
 const btnRenameProject = document.querySelector("#button-rename-project");
 const btnNewTask = document.querySelector("#button-new-task");
@@ -66,6 +71,16 @@ btnSubmitProject.addEventListener("click", (e) => {
     newProject.close();
 });
 btnCancelProject.addEventListener("click", () => newProject.close())
+
+btnRenameProject.addEventListener("click", () => renameProject.showModal());
+btnSubmitRenameProject.addEventListener("click", (e) => {
+    e.preventDefault();
+    root.currentProject.name = fieldRenameProjectName.value;
+    renderProjects();
+    renderHeaderProject();
+    renameProject.close();
+});
+btnCancelRenameProject.addEventListener("click", () => renameProject.close())
 
 btnNewTask.addEventListener("click", () => newTask.showModal());
 btnSubmitTask.addEventListener("click", (e) => {

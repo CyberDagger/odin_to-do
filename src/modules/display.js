@@ -3,7 +3,7 @@
 /*---------*/
 
 import { root } from "./structure.js";
-import { format } from "date-fns";
+import { format, isPast } from "date-fns";
 
 /*-------------*/
 /* DOM Aliases */
@@ -132,7 +132,11 @@ function renderTasks(project) {
         taskBlock.appendChild(taskTitle);
         // Due Date
         let taskDate = document.createElement("p");
-        taskDate.textContent = format(project.taskList[i].dueDate, "dd/MM/yyyy");
+        let date = project.taskList[i].dueDate;
+        taskDate.textContent = format(date, "dd/MM/yyyy");
+        if (isPast(date)) {
+            taskDate.classList.add("overdue");
+        }
         taskBlock.appendChild(taskDate);
         // Priority
         let taskPriority = document.createElement("p");
@@ -167,6 +171,9 @@ function renderTaskWindow(project, taskName) {
     // Due Date
     let taskDate = document.createElement("p");
     taskDate.textContent = format(task.dueDate, "dd/MM/yyyy");
+    if (isPast(task.dueDate)) {
+        taskDate.classList.add("overdue");
+    }
     cardDate.appendChild(taskDate);
     // Priority
     let taskPriority = document.createElement("p");

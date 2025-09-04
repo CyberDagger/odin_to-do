@@ -81,3 +81,7 @@ option#pri-med {
 option#pri-low {
     color: green;
 }
+
+.overdue {
+    color: red;
+}

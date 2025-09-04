@@ -1,8 +1,14 @@
-// Imports
+/*---------*/
+/* Imports */
+/*---------*/
+
 import { root } from "./structure.js";
 import { format } from "date-fns";
 
-// DOM Aliases
+/*-------------*/
+/* DOM Aliases */
+/*-------------*/
+
 const projectMenu = document.querySelector("#project-list");
 const taskField = document.querySelector("#content");
 
@@ -16,11 +22,14 @@ const btnCloseTask = document.querySelector("#button-close-task");
 
 const btnNewProject = document.querySelector("#button-new-project");
 const newProject = document.querySelector("#new-project");
-const fieldProjectName = document.querySelector("#project-name");
+const fieldProjectName = document.querySelector("#new-project-name");
 const btnSubmitProject = document.querySelector("#new-project-submit");
 const btnCancelProject = document.querySelector("#new-project-cancel");
 
+const headerProject = document.querySelector("#title-project");
+const btnRenameProject = document.querySelector("#button-rename-project");
 const btnNewTask = document.querySelector("#button-new-task");
+
 const newTask = document.querySelector("#new-task");
 const fieldTaskName = document.querySelector("#task-name");
 const fieldTaskDate = document.querySelector("#task-date");
@@ -28,6 +37,10 @@ const fieldTaskPriority = document.querySelector("#task-priority");
 const fieldTaskNotes = document.querySelector("#task-notes");
 const btnSubmitTask = document.querySelector("#new-task-submit");
 const btnCancelTask = document.querySelector("#new-task-cancel");
+
+/*----------------*/
+/* Event Handlers */
+/*----------------*/
 
 fieldTaskPriority.addEventListener("change", function() {
     switch (this.value) {
@@ -64,6 +77,10 @@ btnCancelTask.addEventListener("click", () => newTask.close())
 
 btnCloseTask.addEventListener("click", () => taskWindow.close());
 
+/*------------------*/
+/* Called Functions */
+/*------------------*/
+
 function renderProjects() {
     projectMenu.innerHTML = "";
     for (let i = 0; i < root.projectList.length; i++) {
@@ -71,7 +88,10 @@ function renderProjects() {
         let itemButton = document.createElement("button");
         itemButton.textContent = root.projectList[i].name;
         itemButton.setAttribute("data-name", root.projectList[i].name);
-        itemButton.addEventListener("click", (e) => selectProject(e.currentTarget.dataset.name));
+        itemButton.addEventListener("click", (e) => {
+            selectProject(e.currentTarget.dataset.name);
+            renderHeaderProject();
+        });
         item.appendChild(itemButton);
         projectMenu.appendChild(item);
     }
@@ -153,4 +173,16 @@ function clearTasks() {
     taskField.innerHTML = "";
 }
 
-export { renderProjects, renderTasks, clearTasks };
+function renderHeaderProject() {
+    if (root.currentProject === null) {
+        headerProject.textContent = "Select a project";
+    } else {
+        headerProject.textContent = root.currentProject.name;
+    }
+}
+
+/*---------*/
+/* Exports */
+/*---------*/
+
+export { renderProjects, renderTasks, clearTasks, renderHeaderProject };

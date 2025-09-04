@@ -1,4 +1,4 @@
-import { renderProjects, renderTasks } from "./display";
+import { renderProjects, renderTasks, renderHeaderProject } from "./display";
 
 class Task {
     constructor(title, dueDate, priority, notes) {
@@ -26,7 +26,10 @@ const root = {
     currentProject: null,
     addProject(name) {
         this.projectList.push(new Project(name));
+        this.currentProject = this.projectList[this.projectList.length - 1];
         renderProjects();
+        renderTasks(this.currentProject);
+        renderHeaderProject();
     }
 }
 

@@ -214,8 +214,12 @@ function clearTasks() {
 function renderHeaderProject() {
     if (root.currentProject === null) {
         headerProject.textContent = "Select a project";
+        btnRenameProject.disabled = true;
+        btnNewTask.disabled = true;
     } else {
         headerProject.textContent = root.currentProject.name;
+        btnRenameProject.disabled = false;
+        btnNewTask.disabled = false;
     }
 }
 

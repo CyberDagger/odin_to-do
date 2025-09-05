@@ -108,6 +108,13 @@ function renderProjects() {
             renderHeaderProject();
         });
         item.appendChild(itemButton);
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.setAttribute("data-name", root.projectList[i].name);
+        deleteButton.addEventListener("click", (e) => {
+            root.deleteProject(e.currentTarget.dataset.name);
+        })
+        item.appendChild(deleteButton);
         projectMenu.appendChild(item);
     }
 }

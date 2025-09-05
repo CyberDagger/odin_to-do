@@ -1,4 +1,4 @@
-import { renderProjects, renderTasks, renderHeaderProject } from "./display";
+import { renderProjects, renderTasks, renderHeaderProject, clearTasks } from "./display";
 
 class Task {
     constructor(title, dueDate, priority, notes) {
@@ -29,6 +29,20 @@ const root = {
         this.currentProject = this.projectList[this.projectList.length - 1];
         renderProjects();
         renderTasks(this.currentProject);
+        renderHeaderProject();
+    },
+    deleteProject(projectName) {
+        let projectIndex = this.projectList.map(i => i.name).indexOf(projectName);
+        if (this.currentProject === this.projectList[projectIndex]) {
+            this.currentProject = null;
+        }
+        this.projectList.splice(projectIndex, 1);
+        renderProjects();
+        if (this.currentProject != null) {
+            renderTasks(this.currentProject);
+        } else {
+            clearTasks();
+        }
         renderHeaderProject();
     }
 }

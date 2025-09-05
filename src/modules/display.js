@@ -117,7 +117,7 @@ btnCancelTask.addEventListener("click", () => newTask.close())
 btnCloseTask.addEventListener("click", () => taskWindow.close());
 
 btnSubmitEditTask.addEventListener("click", (e) => {
-    let task = root.currentProject.taskList[root.currentProject.taskList.map(i => i.title).indexOf(e.currentTarget.dataset.title)];
+    let task = root.currentProject.taskList[root.currentProject.taskList.map(i => i.id).indexOf(e.currentTarget.dataset.id)];
     task.setTask(fieldEditTaskName.value, fieldEditTaskDate.value, fieldEditTaskPriority.value, fieldEditTaskNotes.value);
     renderTasks(root.currentProject);
     editTask.close();
@@ -163,7 +163,7 @@ function renderTasks(project) {
     for (let i = 0; i < project.taskList.length; i++) {
         let taskBlock = document.createElement("div");
         taskBlock.classList.add("task-block");
-        taskBlock.setAttribute("data-title", project.taskList[i].title);
+        taskBlock.setAttribute("data-id", project.taskList[i].id);
         
         // Title
         let taskTitle = document.createElement("p");
@@ -188,23 +188,23 @@ function renderTasks(project) {
         // Edit Button
         let taskEdit = document.createElement("button");
         taskEdit.textContent = "Edit";
-        taskEdit.setAttribute("data-title", project.taskList[i].title);
+        taskEdit.setAttribute("data-id", project.taskList[i].id);
         taskEdit.addEventListener("click", (e) => {
             e.stopPropagation();
-            renderTaskEdit(project, e.currentTarget.dataset.title);
+            renderTaskEdit(project, e.currentTarget.dataset.id);
         });
         taskBlock.appendChild(taskEdit);
         // Delete Button
         let taskDelete = document.createElement("button");
         taskDelete.textContent = "Delete";
-        taskDelete.setAttribute("data-title", project.taskList[i].title);
+        taskDelete.setAttribute("data-id", project.taskList[i].id);
         taskDelete.addEventListener("click", (e) => {
             e.stopPropagation();
-            root.currentProject.removeTask(e.currentTarget.dataset.title);
+            root.currentProject.removeTask(e.currentTarget.dataset.id);
         });
         taskBlock.appendChild(taskDelete);
 
-        taskBlock.addEventListener("click", (e) => renderTaskWindow(project, e.currentTarget.dataset.title));
+        taskBlock.addEventListener("click", (e) => renderTaskWindow(project, e.currentTarget.dataset.id));
 
         taskField.appendChild(taskBlock);
     }
@@ -218,8 +218,8 @@ function clearTaskWindow() {
     cardCheck.innerHTML = "";
 }
 
-function renderTaskWindow(project, taskName) {
-    let task = project.taskList[project.taskList.map(i => i.title).indexOf(taskName)];
+function renderTaskWindow(project, taskID) {
+    let task = project.taskList[project.taskList.map(i => i.id).indexOf(taskID)];
     clearTaskWindow();
     // Title
     let taskTitle = document.createElement("h1");
@@ -248,8 +248,8 @@ function renderTaskWindow(project, taskName) {
     taskWindow.showModal();
 }
 
-function renderTaskEdit(project, taskName) {
-    let task = project.taskList[project.taskList.map(i => i.title).indexOf(taskName)];
+function renderTaskEdit(project, taskID) {
+    let task = project.taskList[project.taskList.map(i => i.id).indexOf(taskID)];
     //clearTaskWindow();
 
     // Title
@@ -262,7 +262,7 @@ function renderTaskEdit(project, taskName) {
     // Notes
     fieldEditTaskNotes.value = task.notes;
 
-    btnSubmitEditTask.setAttribute("data-title", task.title);
+    btnSubmitEditTask.setAttribute("data-id", task.id);
 
     editTask.showModal();
 }

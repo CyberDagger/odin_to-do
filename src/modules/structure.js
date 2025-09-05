@@ -2,6 +2,7 @@ import { renderProjects, renderTasks, renderHeaderProject, clearTasks } from "./
 
 class Task {
     constructor(title, dueDate, priority, notes) {
+        this.id = crypto.randomUUID();
         this.title = title;
         this.dueDate = new Date(dueDate);
         this.priority = priority;

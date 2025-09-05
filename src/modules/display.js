@@ -153,9 +153,18 @@ function renderTasks(project) {
         let taskCheck = document.createElement("p");
         taskCheck.textContent = project.taskList[i].check;
         taskBlock.appendChild(taskCheck);
+        // Delete Button
+        let taskDelete = document.createElement("button");
+        taskDelete.textContent = "Delete";
+        taskDelete.setAttribute("data-title", project.taskList[i].title);
+        taskDelete.addEventListener("click", (e) => {
+            e.stopPropagation();
+            root.currentProject.removeTask(e.currentTarget.dataset.title);
+        });
+        taskBlock.appendChild(taskDelete);
 
         taskBlock.addEventListener("click", (e) => renderTaskWindow(project, e.currentTarget.dataset.title));
-        //taskBlock.addEventListener("click", (e) => alert(e.currentTarget.dataset.title));
+
         taskField.appendChild(taskBlock);
     }
 }

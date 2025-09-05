@@ -19,6 +19,11 @@ class Project {
         this.taskList.push(new Task(title, dueDate, priority, notes));
         renderTasks(this);
     }
+    removeTask(taskName) {
+        let taskIndex = this.taskList.map(i => i.title).indexOf(taskName);
+        this.taskList.splice(taskIndex, 1);
+        renderTasks(this);
+    }
 }
 
 const root = {

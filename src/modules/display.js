@@ -116,6 +116,14 @@ btnCancelTask.addEventListener("click", () => newTask.close())
 
 btnCloseTask.addEventListener("click", () => taskWindow.close());
 
+btnSubmitEditTask.addEventListener("click", (e) => {
+    let task = root.currentProject.taskList[root.currentProject.taskList.map(i => i.title).indexOf(e.currentTarget.dataset.title)];
+    task.setTask(fieldEditTaskName.value, fieldEditTaskDate.value, fieldEditTaskPriority.value, fieldEditTaskNotes.value);
+    renderTasks(root.currentProject);
+    editTask.close();
+});
+btnCancelEditTask.addEventListener("click", () => editTask.close());
+
 /*------------------*/
 /* Called Functions */
 /*------------------*/
@@ -253,6 +261,8 @@ function renderTaskEdit(project, taskName) {
     fieldEditTaskPriority.dispatchEvent(new Event("change"));
     // Notes
     fieldEditTaskNotes.value = task.notes;
+
+    btnSubmitEditTask.setAttribute("data-title", task.title);
 
     editTask.showModal();
 }

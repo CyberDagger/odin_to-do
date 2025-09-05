@@ -8,6 +8,12 @@ class Task {
         this.notes = notes;
         this.check = false;
     }
+    setTask(title, dueDate, priority, notes) {
+        this.title = title;
+        this.dueDate = new Date(dueDate);
+        this.priority = priority;
+        this.notes = notes;
+    }
 }
 
 class Project {

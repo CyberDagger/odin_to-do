@@ -38,7 +38,7 @@ dialog {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
-#new-task-card {
+#new-task-card, #edit-task-card {
     display: grid;
     grid-template-columns: auto auto;
 }
@@ -64,7 +64,7 @@ dialog {
     grid-column: 1/3;
 }
 
-#create-task-buttons {
+#create-task-buttons, #edit-task-buttons {
     grid-column: 1/3;
     justify-self: center;
 }

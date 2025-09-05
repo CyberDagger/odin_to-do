@@ -43,6 +43,14 @@ const fieldTaskNotes = document.querySelector("#task-notes");
 const btnSubmitTask = document.querySelector("#new-task-submit");
 const btnCancelTask = document.querySelector("#new-task-cancel");
 
+const editTask = document.querySelector("#edit-task");
+const fieldEditTaskName = document.querySelector("#edit-task-name");
+const fieldEditTaskDate = document.querySelector("#edit-task-date");
+const fieldEditTaskPriority = document.querySelector("#edit-task-priority");
+const fieldEditTaskNotes = document.querySelector("#edit-task-notes");
+const btnSubmitEditTask = document.querySelector("#edit-task-submit");
+const btnCancelEditTask = document.querySelector("#edit-task-cancel");
+
 /*----------------*/
 /* Event Handlers */
 /*----------------*/
@@ -63,6 +71,22 @@ fieldTaskPriority.addEventListener("change", function() {
     }
 });
 fieldTaskPriority.dispatchEvent(new Event("change"));
+
+fieldEditTaskPriority.addEventListener("change", function() {
+    switch (this.value) {
+        case "high":
+            this.style.color = "red";
+            break;
+        case "medium":
+            this.style.color = "orange";
+            break;
+        case "low":
+            this.style.color = "green";
+            break;
+        default:
+            this.style.color = "black";
+    }
+});
 
 btnNewProject.addEventListener("click", () => newProject.showModal());
 btnSubmitProject.addEventListener("click", (e) => {
@@ -153,6 +177,15 @@ function renderTasks(project) {
         let taskCheck = document.createElement("p");
         taskCheck.textContent = project.taskList[i].check;
         taskBlock.appendChild(taskCheck);
+        // Edit Button
+        let taskEdit = document.createElement("button");
+        taskEdit.textContent = "Edit";
+        taskEdit.setAttribute("data-title", project.taskList[i].title);
+        taskEdit.addEventListener("click", (e) => {
+            e.stopPropagation();
+            renderTaskEdit(project, e.currentTarget.dataset.title);
+        });
+        taskBlock.appendChild(taskEdit);
         // Delete Button
         let taskDelete = document.createElement("button");
         taskDelete.textContent = "Delete";
@@ -205,6 +238,23 @@ function renderTaskWindow(project, taskName) {
     cardCheck.appendChild(taskCheck);
 
     taskWindow.showModal();
+}
+
+function renderTaskEdit(project, taskName) {
+    let task = project.taskList[project.taskList.map(i => i.title).indexOf(taskName)];
+    //clearTaskWindow();
+
+    // Title
+    fieldEditTaskName.value = task.title;
+    // Due Date
+    fieldEditTaskDate.value = format(task.dueDate, "yyyy-MM-dd");
+    // Priority
+    fieldEditTaskPriority.value = task.priority;
+    fieldEditTaskPriority.dispatchEvent(new Event("change"));
+    // Notes
+    fieldEditTaskNotes.value = task.notes;
+
+    editTask.showModal();
 }
 
 function clearTasks() {

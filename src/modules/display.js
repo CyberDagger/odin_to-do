@@ -143,9 +143,9 @@ function renderProjects() {
         let item = document.createElement("li");
         let itemButton = document.createElement("button");
         itemButton.textContent = root.projectList[i].name;
-        itemButton.setAttribute("data-name", root.projectList[i].name);
+        itemButton.setAttribute("data-id", root.projectList[i].id);
         itemButton.addEventListener("click", (e) => {
-            selectProject(e.currentTarget.dataset.name);
+            selectProject(e.currentTarget.dataset.id);
             renderHeaderProject();
         });
         item.appendChild(itemButton);

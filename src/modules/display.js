@@ -126,7 +126,7 @@ btnCloseTask.addEventListener("click", () => taskWindow.close());
 
 editTaskSubmit.addEventListener("submit", (e) => {
     e.preventDefault();
-    let task = root.currentProject.taskList[root.currentProject.taskList.map(i => i.id).indexOf(e.currentTarget.dataset.id)];
+    let task = root.currentProject.taskList.find(i => i.id === e.currentTarget.dataset.id);
     task.setTask(fieldEditTaskName.value, fieldEditTaskDate.value, fieldEditTaskPriority.value, fieldEditTaskNotes.value);
     renderTasks(root.currentProject);
     editTask.close();
@@ -164,7 +164,7 @@ function renderProjects() {
 }
 
 function selectProject(projectID) {
-    let project = root.projectList[root.projectList.map(i => i.id).indexOf(projectID)];
+    let project = root.projectList.find(i => i.id === projectID);
     root.currentProject = project;
     renderTasks(project);
 }
@@ -232,7 +232,7 @@ function clearTaskWindow() {
 }
 
 function renderTaskWindow(project, taskID) {
-    let task = project.taskList[project.taskList.map(i => i.id).indexOf(taskID)];
+    let task = project.taskList.find(i => i.id === taskID);
     clearTaskWindow();
     // Title
     let taskTitle = document.createElement("h1");
@@ -262,7 +262,7 @@ function renderTaskWindow(project, taskID) {
 }
 
 function renderTaskEdit(project, taskID) {
-    let task = project.taskList[project.taskList.map(i => i.id).indexOf(taskID)];
+    let task = project.taskList.find(i => i.id === taskID);
     //clearTaskWindow();
 
     // Title

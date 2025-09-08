@@ -25,7 +25,7 @@ class Project {
         this.taskList.push(new Task(title, dueDate, priority, notes));
     }
     removeTask(taskID) {
-        let taskIndex = this.taskList.map(i => i.id).indexOf(taskID);
+        let taskIndex = this.taskList.findIndex(i => i.id === taskID);
         this.taskList.splice(taskIndex, 1);
     }
 }
@@ -38,7 +38,7 @@ const root = {
         this.currentProject = this.projectList[this.projectList.length - 1];
     },
     deleteProject(projectID) {
-        let projectIndex = this.projectList.map(i => i.id).indexOf(projectID);
+        let projectIndex = this.projectList.findIndex(i => i.id === projectID);
         if (this.currentProject === this.projectList[projectIndex]) {
             this.currentProject = null;
         }

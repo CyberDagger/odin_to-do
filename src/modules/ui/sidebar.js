@@ -24,7 +24,7 @@ function renderProjects() {
         deleteButton.textContent = "Delete";
         deleteButton.setAttribute("data-name", root.projectList[i].name);
         deleteButton.addEventListener("click", (e) => {
-            root.deleteProject(e.currentTarget.dataset.name);
+            root.deleteProject(e.currentTarget.dataset.id);
             renderProjects();
             renderTasks(root.currentProject);
             renderHeaderProject();

@@ -44,7 +44,11 @@ function renderTaskWindow(project, taskID) {
     let taskCheck = document.createElement("p");
     taskCheck.textContent = task.check;
     cardCheck.appendChild(taskCheck);
-
+    if (task.check) {
+        taskWindow.classList.add("completed");
+    } else {
+        taskWindow.classList.remove("completed");
+    }
     taskWindow.showModal();
 }
 

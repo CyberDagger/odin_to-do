@@ -32,6 +32,9 @@ dialog {
     justify-self: center;
     align-self: center;
     background-color: lightsteelblue;
+    &.completed {
+        background-color: gray;
+    }
 }
 
 #task-card {

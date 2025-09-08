@@ -22,7 +22,7 @@ function renderProjects() {
         item.appendChild(itemButton);
         let deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
-        deleteButton.setAttribute("data-name", root.projectList[i].name);
+        deleteButton.setAttribute("data-id", root.projectList[i].id);
         deleteButton.addEventListener("click", (e) => {
             root.deleteProject(e.currentTarget.dataset.id);
             renderProjects();

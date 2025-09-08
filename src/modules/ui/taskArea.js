@@ -35,8 +35,14 @@ function renderTasks(project) {
             taskPriority.textContent = project.taskList[i].priority;
             taskBlock.appendChild(taskPriority);
             // Completed
-            let taskCheck = document.createElement("p");
-            taskCheck.textContent = project.taskList[i].check;
+            let taskCheck = document.createElement("input");
+            taskCheck.type = "checkbox";
+            if (project.taskList[i].check) {
+                taskCheck.checked = true;
+            }
+            taskCheck.addEventListener("click", (e) => {
+                e.stopPropagation();
+            })
             taskBlock.appendChild(taskCheck);
             // Edit Button
             let taskEdit = document.createElement("button");

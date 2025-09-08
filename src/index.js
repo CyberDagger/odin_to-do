@@ -17,6 +17,8 @@ root.projectList[1].addTask("Test Task 4", "02/05/2025", "high", "Note 4");
 root.projectList[1].addTask("Test Task 5", "02/05/2025", "high", "Note 5");
 root.projectList[2].addTask("Test Task 6", "11/05/2025", "high", "Note 6");
 
+root.projectList[0].taskList[1].check = true;
+
 clearTasks();
 renderProjects();
 root.currentProject = null;

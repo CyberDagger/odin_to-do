@@ -96,6 +96,9 @@ btnNewProject.addEventListener("click", () => newProject.showModal());
 newProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
     root.addProject(fieldProjectName.value);
+    renderProjects();
+    renderTasks(root.currentProject);
+    renderHeaderProject();
     newProject.close();
 });
 btnCancelProject.addEventListener("click", () => newProject.close())
@@ -114,6 +117,7 @@ btnNewTask.addEventListener("click", () => newTask.showModal());
 newTaskSubmit.addEventListener("submit", (e) => {
     e.preventDefault();
     root.currentProject.addTask(fieldTaskName.value, fieldTaskDate.value, fieldTaskPriority.value, fieldTaskNotes.value);
+    renderTasks(root.currentProject);
     newTask.close();
 });
 btnCancelTask.addEventListener("click", () => newTask.close())
@@ -150,6 +154,9 @@ function renderProjects() {
         deleteButton.setAttribute("data-name", root.projectList[i].name);
         deleteButton.addEventListener("click", (e) => {
             root.deleteProject(e.currentTarget.dataset.name);
+            renderProjects();
+            renderProjects(root.currentProject);
+            renderHeaderProject();
         })
         item.appendChild(deleteButton);
         projectMenu.appendChild(item);
@@ -206,6 +213,7 @@ function renderTasks(project) {
         taskDelete.addEventListener("click", (e) => {
             e.stopPropagation();
             root.currentProject.removeTask(e.currentTarget.dataset.id);
+            renderTasks(root.currentProject);
         });
         taskBlock.appendChild(taskDelete);
 

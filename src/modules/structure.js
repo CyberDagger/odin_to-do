@@ -1,5 +1,3 @@
-import { renderProjects, renderTasks, renderHeaderProject, clearTasks } from "./display";
-
 class Task {
     constructor(title, dueDate, priority, notes) {
         this.id = crypto.randomUUID();
@@ -24,12 +22,10 @@ class Project {
     }
     addTask (title, dueDate, priority, notes) {
         this.taskList.push(new Task(title, dueDate, priority, notes));
-        renderTasks(this);
     }
     removeTask(taskID) {
-        let taskIndex = this.taskList.map(i => i.title).indexOf(taskID);
+        let taskIndex = this.taskList.map(i => i.id).indexOf(taskID);
         this.taskList.splice(taskIndex, 1);
-        renderTasks(this);
     }
 }
 
@@ -39,9 +35,6 @@ const root = {
     addProject(name) {
         this.projectList.push(new Project(name));
         this.currentProject = this.projectList[this.projectList.length - 1];
-        renderProjects();
-        renderTasks(this.currentProject);
-        renderHeaderProject();
     },
     deleteProject(projectName) {
         let projectIndex = this.projectList.map(i => i.name).indexOf(projectName);
@@ -49,13 +42,6 @@ const root = {
             this.currentProject = null;
         }
         this.projectList.splice(projectIndex, 1);
-        renderProjects();
-        if (this.currentProject != null) {
-            renderTasks(this.currentProject);
-        } else {
-            clearTasks();
-        }
-        renderHeaderProject();
     }
 }
 

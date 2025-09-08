@@ -42,6 +42,8 @@ function renderTasks(project) {
             }
             taskCheck.addEventListener("click", (e) => {
                 e.stopPropagation();
+                project.taskList[i].check = !project.taskList[i].check;
+                renderTasks(project);
             })
             taskBlock.appendChild(taskCheck);
             // Edit Button
@@ -63,6 +65,10 @@ function renderTasks(project) {
                 renderTasks(root.currentProject);
             });
             taskBlock.appendChild(taskDelete);
+
+            if (project.taskList[i].check) {
+                taskBlock.classList.add("completed");
+            }
 
             taskBlock.addEventListener("click", (e) => renderTaskWindow(project, e.currentTarget.dataset.id));
 

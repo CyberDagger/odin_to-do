@@ -23,6 +23,9 @@ body {
     justify-content: space-between;
     padding: 8px;
     background-color: lightblue;
+    &.completed {
+        background-color: lightgray;
+    }
 }
 
 dialog {

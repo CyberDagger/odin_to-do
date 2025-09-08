@@ -163,8 +163,8 @@ function renderProjects() {
     }
 }
 
-function selectProject(projectName) {
-    let project = root.projectList[root.projectList.map(i => i.name).indexOf(projectName)];
+function selectProject(projectID) {
+    let project = root.projectList[root.projectList.map(i => i.id).indexOf(projectID)];
     root.currentProject = project;
     renderTasks(project);
 }

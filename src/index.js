@@ -2,7 +2,9 @@ import "./reset.css";
 import "./styles.css";
 
 import { Task, Project, root } from "./modules/structure.js";
-import { renderProjects, clearTasks, renderHeaderProject } from "./modules/display.js";
+import { renderProjects } from "./modules/ui/sidebar.js";
+import { clearTasks } from "./modules/ui/taskArea.js";
+import { renderHeaderProject } from "./modules/ui/header.js"
 
 root.addProject("Project 1");
 root.addProject("Project 2");

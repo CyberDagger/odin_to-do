@@ -17,6 +17,7 @@ class Task {
 
 class Project {
     constructor(name) {
+        this.id = crypto.randomUUID();
         this.name = name;
         this.taskList = [];
     }
@@ -36,8 +37,8 @@ const root = {
         this.projectList.push(new Project(name));
         this.currentProject = this.projectList[this.projectList.length - 1];
     },
-    deleteProject(projectName) {
-        let projectIndex = this.projectList.map(i => i.name).indexOf(projectName);
+    deleteProject(projectID) {
+        let projectIndex = this.projectList.map(i => i.id).indexOf(projectID);
         if (this.currentProject === this.projectList[projectIndex]) {
             this.currentProject = null;
         }

@@ -267,7 +267,7 @@ function renderTaskEdit(project, taskID) {
     // Notes
     fieldEditTaskNotes.value = task.notes;
 
-    btnSubmitEditTask.setAttribute("data-id", task.id);
+    editTaskSubmit.setAttribute("data-id", task.id);
 
     editTask.showModal();
 }

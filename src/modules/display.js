@@ -22,11 +22,13 @@ const btnCloseTask = document.querySelector("#button-close-task");
 
 const btnNewProject = document.querySelector("#button-new-project");
 const newProject = document.querySelector("#new-project");
+const newProjectForm = document.querySelector("#new-project-card")
 const fieldProjectName = document.querySelector("#new-project-name");
 const btnSubmitProject = document.querySelector("#new-project-submit");
 const btnCancelProject = document.querySelector("#new-project-cancel");
 
 const renameProject = document.querySelector("#rename-project");
+const renameProjectForm = document.querySelector("#rename-project-card");
 const fieldRenameProjectName = document.querySelector("#rename-project-name");
 const btnSubmitRenameProject = document.querySelector("#rename-project-submit");
 const btnCancelRenameProject = document.querySelector("#rename-project-cancel");
@@ -36,6 +38,7 @@ const btnRenameProject = document.querySelector("#button-rename-project");
 const btnNewTask = document.querySelector("#button-new-task");
 
 const newTask = document.querySelector("#new-task");
+const newTaskSubmit = document.querySelector("#new-task-card");
 const fieldTaskName = document.querySelector("#task-name");
 const fieldTaskDate = document.querySelector("#task-date");
 const fieldTaskPriority = document.querySelector("#task-priority");
@@ -44,6 +47,7 @@ const btnSubmitTask = document.querySelector("#new-task-submit");
 const btnCancelTask = document.querySelector("#new-task-cancel");
 
 const editTask = document.querySelector("#edit-task");
+const editTaskSubmit = document.querySelector("#edit-task-card");
 const fieldEditTaskName = document.querySelector("#edit-task-name");
 const fieldEditTaskDate = document.querySelector("#edit-task-date");
 const fieldEditTaskPriority = document.querySelector("#edit-task-priority");
@@ -89,7 +93,7 @@ fieldEditTaskPriority.addEventListener("change", function() {
 });
 
 btnNewProject.addEventListener("click", () => newProject.showModal());
-btnSubmitProject.addEventListener("click", (e) => {
+newProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
     root.addProject(fieldProjectName.value);
     newProject.close();
@@ -97,7 +101,7 @@ btnSubmitProject.addEventListener("click", (e) => {
 btnCancelProject.addEventListener("click", () => newProject.close())
 
 btnRenameProject.addEventListener("click", () => renameProject.showModal());
-btnSubmitRenameProject.addEventListener("click", (e) => {
+renameProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
     root.currentProject.name = fieldRenameProjectName.value;
     renderProjects();
@@ -107,7 +111,7 @@ btnSubmitRenameProject.addEventListener("click", (e) => {
 btnCancelRenameProject.addEventListener("click", () => renameProject.close())
 
 btnNewTask.addEventListener("click", () => newTask.showModal());
-btnSubmitTask.addEventListener("click", (e) => {
+newTaskSubmit.addEventListener("submit", (e) => {
     e.preventDefault();
     root.currentProject.addTask(fieldTaskName.value, fieldTaskDate.value, fieldTaskPriority.value, fieldTaskNotes.value);
     newTask.close();
@@ -116,7 +120,8 @@ btnCancelTask.addEventListener("click", () => newTask.close())
 
 btnCloseTask.addEventListener("click", () => taskWindow.close());
 
-btnSubmitEditTask.addEventListener("click", (e) => {
+editTaskSubmit.addEventListener("submit", (e) => {
+    e.preventDefault();
     let task = root.currentProject.taskList[root.currentProject.taskList.map(i => i.id).indexOf(e.currentTarget.dataset.id)];
     task.setTask(fieldEditTaskName.value, fieldEditTaskDate.value, fieldEditTaskPriority.value, fieldEditTaskNotes.value);
     renderTasks(root.currentProject);

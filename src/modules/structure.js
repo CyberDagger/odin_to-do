@@ -48,34 +48,49 @@ const root = {
 }
 */
 
-const root = init();
+
+
+class Directory {
+    constructor() {
+        this.projectList = [];
+        this.currentProject = null;
+    }
+    addProject(name) {
+        this.projectList.push(new Project(name));
+        this.currentProject = this.projectList[this.projectList.length - 1];
+    }
+    deleteProject(projectID) {
+        let projectIndex = this.projectList.findIndex(i => i.id === projectID);
+        if (this.currentProject === this.projectList[projectIndex]) {
+            this.currentProject = null;
+        }
+        this.projectList.splice(projectIndex, 1);
+    }
+}
 
 function init() {
     let dir;
     if (localStorage.getItem("saved")) {
         dir = JSON.parse(localStorage.getItem("saved"));
-        console.log("There is saved data. Loading.");
-    } else {
-        dir = {
-            projectList: [],
-            currentProject: null,
-            addProject(name) {
-                this.projectList.push(new Project(name));
-                this.currentProject = this.projectList[this.projectList.length - 1];
-            },
-            deleteProject(projectID) {
-                let projectIndex = this.projectList.findIndex(i => i.id === projectID);
-                if (this.currentProject === this.projectList[projectIndex]) {
-                    this.currentProject = null;
+        Object.setPrototypeOf(dir, Directory.prototype);
+        if (dir.projectList.length > 0) {
+            for (let i = 0; i < dir.projectList.length; i++) {
+                Object.setPrototypeOf(dir.projectList[i], Project.prototype);
+                if (dir.projectList[i].taskList.length > 0) {
+                    for (let j = 0; j < dir.projectList[i].taskList.length; j++) {
+                        console.log(dir.projectList[i].taskList[j]);
+                        Object.setPrototypeOf(dir.projectList[i].taskList[j], Task.prototype);
+                    }
                 }
-                this.projectList.splice(projectIndex, 1);
             }
         }
+    } else {
+        dir = new Directory()
         console.log("There is no saved data. Initializing new root object.");
     }
     return dir;
 }
 
-
+const root = init();
 
 export { Task, Project, root };

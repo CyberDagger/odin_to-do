@@ -30,6 +30,7 @@ class Project {
     }
 }
 
+/*
 const root = {
     projectList: [],
     currentProject: null,
@@ -45,5 +46,36 @@ const root = {
         this.projectList.splice(projectIndex, 1);
     }
 }
+*/
+
+const root = init();
+
+function init() {
+    let dir;
+    if (localStorage.getItem("saved")) {
+        dir = JSON.parse(localStorage.getItem("saved"));
+        console.log("There is saved data. Loading.");
+    } else {
+        dir = {
+            projectList: [],
+            currentProject: null,
+            addProject(name) {
+                this.projectList.push(new Project(name));
+                this.currentProject = this.projectList[this.projectList.length - 1];
+            },
+            deleteProject(projectID) {
+                let projectIndex = this.projectList.findIndex(i => i.id === projectID);
+                if (this.currentProject === this.projectList[projectIndex]) {
+                    this.currentProject = null;
+                }
+                this.projectList.splice(projectIndex, 1);
+            }
+        }
+        console.log("There is no saved data. Initializing new root object.");
+    }
+    return dir;
+}
+
+
 
 export { Task, Project, root };

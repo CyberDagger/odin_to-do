@@ -102,13 +102,25 @@ body {
 
 .task-block {
     border: 3px solid black;
-    margin: 8px;
-    display: flex;
-    justify-content: space-between;
-    padding: 8px;
+    margin: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
     background-color: lightblue;
     &.completed {
         background-color: lightgray;
+    }
+    > .block-title {
+        grid-column: 1/4;
+    }
+    > p {
+        font-weight: bold;
+    }
+    > .check-complete {
+        
     }
 }
 

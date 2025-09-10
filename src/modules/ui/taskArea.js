@@ -19,8 +19,9 @@ function renderTasks(project) {
             taskBlock.setAttribute("data-id", project.taskList[i].id);
             
             // Title
-            let taskTitle = document.createElement("p");
+            let taskTitle = document.createElement("h2");
             taskTitle.textContent = project.taskList[i].title;
+            taskTitle.classList.add("block-title");
             taskBlock.appendChild(taskTitle);
             // Due Date
             let taskDate = document.createElement("p");
@@ -37,6 +38,7 @@ function renderTasks(project) {
             // Completed
             let taskCheck = document.createElement("input");
             taskCheck.type = "checkbox";
+            taskCheck.classList.add("check-complete");
             if (project.taskList[i].check) {
                 taskCheck.checked = true;
             }

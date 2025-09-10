@@ -14,6 +14,7 @@ function renderProjects() {
         let item = document.createElement("li");
         let itemButton = document.createElement("button");
         itemButton.textContent = root.projectList[i].name;
+        itemButton.classList.add("project-select");
         itemButton.setAttribute("data-id", root.projectList[i].id);
         itemButton.addEventListener("click", (e) => {
             selectProject(e.currentTarget.dataset.id);
@@ -21,7 +22,7 @@ function renderProjects() {
         });
         item.appendChild(itemButton);
         let deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
+        deleteButton.classList.add("project-delete");
         deleteButton.setAttribute("data-id", root.projectList[i].id);
         deleteButton.addEventListener("click", (e) => {
             root.deleteProject(e.currentTarget.dataset.id);

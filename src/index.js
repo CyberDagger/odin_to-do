@@ -7,9 +7,10 @@ import { clearTasks } from "./modules/ui/taskArea.js";
 import { renderHeaderProject } from "./modules/ui/header.js";
 
 const btnPopulate = document.querySelector("#button-populate");
-const btnSave = document.querySelector("#button-save");
-const btnLoad = document.querySelector("#button-load");
+//const btnSave = document.querySelector("#button-save");
+//const btnLoad = document.querySelector("#button-load");
 
+/*
 btnPopulate.addEventListener("click", () => {
     root.addProject("Project 1");
     root.addProject("Project 2");
@@ -31,15 +32,18 @@ btnPopulate.addEventListener("click", () => {
 
     console.log(JSON.stringify(root));
 })
-
+*/
+/*
 btnSave.addEventListener("click", () => {
     localStorage.setItem("saved", JSON.stringify(root));
 })
-
+*/
+/*
 btnLoad.addEventListener("click", () => {
     let root = JSON.parse(localStorage.getItem("saved"));
     console.log(root);
 })
+*/
 
 clearTasks();
 renderProjects();

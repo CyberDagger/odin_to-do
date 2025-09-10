@@ -5,11 +5,74 @@
 body {
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 3fr;
 }
 
 .sidebar {
     background-color: lightskyblue;
+    display: grid;
+    grid-template-rows: 3rem 3rem auto;
+    gap: 1rem;
+}
+
+.logo-area {
+    align-self: flex-start;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+    > h1 {
+        font-size: 2.5rem;
+    }
+    > img {
+        height: 3rem;
+    }
+}
+
+#button-new-project {
+    justify-self: center;
+    background-color: slateblue;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1.2rem;
+}
+
+#project-list {
+    justify-self: center;
+    list-style-type: none;
+    margin-bottom: 1rem;
+    padding: 0;
+    background-color: slateblue;
+    width: 80%;
+    > li {
+        height: 2.5rem;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        > .project-select {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: transparent;
+            border: none;
+        }
+        > .project-delete {
+            background-image: url("./assets/images/delete.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 2rem;
+            width: 2rem;
+        }
+    }
+    > li:nth-child(odd) {
+        background-color: darkslategray;
+    }
+    > li:nth-child(even) {
+        background-color: lightslategray;
+    }
 }
 
 .header {

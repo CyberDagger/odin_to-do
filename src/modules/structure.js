@@ -30,26 +30,6 @@ class Project {
     }
 }
 
-/*
-const root = {
-    projectList: [],
-    currentProject: null,
-    addProject(name) {
-        this.projectList.push(new Project(name));
-        this.currentProject = this.projectList[this.projectList.length - 1];
-    },
-    deleteProject(projectID) {
-        let projectIndex = this.projectList.findIndex(i => i.id === projectID);
-        if (this.currentProject === this.projectList[projectIndex]) {
-            this.currentProject = null;
-        }
-        this.projectList.splice(projectIndex, 1);
-    }
-}
-*/
-
-
-
 class Directory {
     constructor() {
         this.projectList = [];
@@ -86,7 +66,6 @@ function init() {
         }
     } else {
         dir = new Directory()
-        console.log("There is no saved data. Initializing new root object.");
     }
     return dir;
 }

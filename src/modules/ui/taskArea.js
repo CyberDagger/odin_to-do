@@ -62,6 +62,7 @@ function renderTasks(project) {
             taskDelete.addEventListener("click", (e) => {
                 e.stopPropagation();
                 root.currentProject.removeTask(e.currentTarget.dataset.id);
+                localStorage.setItem("saved", JSON.stringify(root));
                 renderTasks(root.currentProject);
             });
             taskBlock.appendChild(taskDelete);

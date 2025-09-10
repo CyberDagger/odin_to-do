@@ -30,6 +30,7 @@ editTaskSubmit.addEventListener("submit", (e) => {
     e.preventDefault();
     let task = root.currentProject.taskList.find(i => i.id === e.currentTarget.dataset.id);
     task.setTask(fieldEditTaskName.value, fieldEditTaskDate.value, fieldEditTaskPriority.value, fieldEditTaskNotes.value);
+    localStorage.setItem("saved", JSON.stringify(root));
     renderTasks(root.currentProject);
     editTask.close();
 });
@@ -38,7 +39,6 @@ btnCancelEditTask.addEventListener("click", () => editTask.close());
 
 function renderTaskEdit(project, taskID) {
     let task = project.taskList.find(i => i.id === taskID);
-    //clearTaskWindow();
 
     // Title
     fieldEditTaskName.value = task.title;

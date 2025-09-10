@@ -15,6 +15,7 @@ function renderNewProject() {
 newProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
     root.addProject(fieldProjectName.value);
+    localStorage.setItem("saved", JSON.stringify(root));
     renderProjects();
     renderTasks(root.currentProject);
     renderHeaderProject();

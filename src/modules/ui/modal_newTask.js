@@ -33,6 +33,7 @@ function renderNewTask() {
 newTaskSubmit.addEventListener("submit", (e) => {
     e.preventDefault();
     root.currentProject.addTask(fieldTaskName.value, fieldTaskDate.value, fieldTaskPriority.value, fieldTaskNotes.value);
+    localStorage.setItem("saved", JSON.stringify(root));
     renderTasks(root.currentProject);
     newTask.close();
 });

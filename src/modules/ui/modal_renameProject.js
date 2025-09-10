@@ -14,6 +14,7 @@ function renderRenameProject() {
 renameProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
     root.currentProject.name = fieldRenameProjectName.value;
+    localStorage.setItem("saved", JSON.stringify(root));
     renderProjects();
     renderHeaderProject();
     renameProject.close();

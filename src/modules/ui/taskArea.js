@@ -3,6 +3,10 @@ import { format, isPast } from "date-fns";
 import { renderTaskWindow } from "./modal_task.js";
 import { renderTaskEdit } from "./modal_editTask.js";
 
+import img_priorityLow from "../../assets/images/priority_low.svg";
+import img_priorityMed from "../../assets/images/priority_med.svg";
+import img_priorityHigh from "../../assets/images/priority_high.svg";
+
 const taskField = document.querySelector("#content");
 
 function clearTasks() {
@@ -25,6 +29,7 @@ function renderTasks(project) {
             taskBlock.appendChild(taskTitle);
             // Due Date
             let taskDate = document.createElement("p");
+            taskDate.classList.add("block-date");
             let date = project.taskList[i].dueDate;
             taskDate.textContent = format(date, "dd/MM/yyyy");
             if (isPast(date)) {
@@ -32,9 +37,17 @@ function renderTasks(project) {
             }
             taskBlock.appendChild(taskDate);
             // Priority
-            let taskPriority = document.createElement("p");
-            taskPriority.textContent = project.taskList[i].priority;
-            taskBlock.appendChild(taskPriority);
+            switch (project.taskList[i].priority) {
+                case "low":
+                    taskBlock.style.borderLeftColor = "green";
+                    break;
+                case "medium":
+                    taskBlock.style.borderLeftColor = "orange";
+                    break;
+                case "high":
+                    taskBlock.style.borderLeftColor = "red";
+                    break;
+            }
             // Completed
             let taskCheck = document.createElement("input");
             taskCheck.type = "checkbox";
@@ -48,18 +61,22 @@ function renderTasks(project) {
                 renderTasks(project);
             })
             taskBlock.appendChild(taskCheck);
+
+            //Buttons
+            let taskButtons = document.createElement("div");
+            taskButtons.classList.add("block-buttons");
             // Edit Button
             let taskEdit = document.createElement("button");
-            taskEdit.textContent = "Edit";
+            taskEdit.classList.add("block-button-edit");
             taskEdit.setAttribute("data-id", project.taskList[i].id);
             taskEdit.addEventListener("click", (e) => {
                 e.stopPropagation();
                 renderTaskEdit(project, e.currentTarget.dataset.id);
             });
-            taskBlock.appendChild(taskEdit);
+            taskButtons.appendChild(taskEdit);
             // Delete Button
             let taskDelete = document.createElement("button");
-            taskDelete.textContent = "Delete";
+            taskDelete.classList.add("block-button-delete");
             taskDelete.setAttribute("data-id", project.taskList[i].id);
             taskDelete.addEventListener("click", (e) => {
                 e.stopPropagation();
@@ -67,7 +84,8 @@ function renderTasks(project) {
                 localStorage.setItem("saved", JSON.stringify(root));
                 renderTasks(root.currentProject);
             });
-            taskBlock.appendChild(taskDelete);
+            taskButtons.appendChild(taskDelete);
+            taskBlock.appendChild(taskButtons);
 
             if (project.taskList[i].check) {
                 taskBlock.classList.add("completed");

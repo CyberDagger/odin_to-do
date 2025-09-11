@@ -24,6 +24,17 @@ function renderTaskWindow(project, taskID) {
     // Title
     let taskTitle = document.createElement("h1");
     taskTitle.textContent = task.title;
+    switch (task.priority) {
+        case "low":
+            taskTitle.style.backgroundColor = "green";
+            break;
+        case "medium":
+            taskTitle.style.backgroundColor = "orange";
+            break;
+        case "high":
+            taskTitle.style.backgroundColor = "red";
+            break;
+    }
     cardTitle.appendChild(taskTitle);
     // Due Date
     let taskDate = document.createElement("p");

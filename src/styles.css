@@ -101,15 +101,18 @@ body {
 }
 
 .task-block {
-    border: 3px solid black;
+    outline: 3px solid black;
+    border-left: 80px solid black;
+    border-right: 0px solid transparent;
+    border-radius: 2rem / 4rem;
     margin: 0.5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 80px;
     grid-template-rows: auto auto auto;
     justify-items: center;
     gap: 0.5rem;
-    padding: 0.5rem;
-    background-color: lightblue;
+    padding: 0.5rem 0;
+    background-color: whitesmoke;
     &.completed {
         background-color: lightgray;
     }
@@ -119,15 +122,54 @@ body {
     > p {
         font-weight: bold;
     }
+    > .block-date {
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
     > .check-complete {
-        
+        grid-row: 2/3;
+        grid-column: 4/5;
+        justify-self: left;
+        appearance: none;
+        border: 2px solid black;
+        height: 1.5rem;
+        width: 1.5rem;
+        background-color: white;
+        &:checked {
+            background-color: lightblue;
+            background-image: url("./assets/images/confirm.svg");
+        }
+        &:hover {
+            background-color: lightgray;
+        }
+    }
+    > .block-buttons {
+        grid-column: 2/3;
+        grid-row: 3/4;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        > button {
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 2rem;
+            width: 2rem;
+        }
+        > .block-button-edit {
+            background-image: url("./assets/images/edit.svg");
+        }
+        > .block-button-delete {
+            background-image: url("./assets/images/delete.svg");
+        }
     }
 }
 
 dialog {
     justify-self: center;
     align-self: center;
-    background-color: lightsteelblue;
+    padding: 0;
+    background-color: whitesmoke;
+    border-radius: 16px;
     &.completed {
         background-color: gray;
     }
@@ -138,6 +180,7 @@ dialog {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    
 }
 
 #new-task-card, #edit-task-card {
@@ -148,6 +191,9 @@ dialog {
 #card-title {
     grid-column: 1/3;
     justify-self: center;
+    width: 100%;
+    text-align: center;
+    background-color: white;
 }
 
 #card-desc {

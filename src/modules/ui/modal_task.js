@@ -37,15 +37,17 @@ function renderTaskWindow(project, taskID) {
     }
     
     // Due Date
-    cardDate.textContent = format(task.dueDate, "dd/MM/yyyy");
+    cardDate.textContent = "Due date: " + format(task.dueDate, "dd/MM/yyyy");
     if (isPast(task.dueDate)) {
+        cardDate.textContent += " *OVERDUE*";
         cardDate.classList.add("overdue");
     } else {
         cardDate.classList.remove("overdue");
     }
 
     // Priority
-    cardPriority.textContent = task.priority;
+    let textPriority = task.priority.charAt(0).toUpperCase() +task.priority.slice(1);
+    cardPriority.textContent = "Priority: " + textPriority;
     
     // Notes
     cardNotes.textContent = task.notes;

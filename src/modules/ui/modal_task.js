@@ -22,39 +22,37 @@ function renderTaskWindow(project, taskID) {
     let task = project.taskList.find(i => i.id === taskID);
     clearTaskWindow();
     // Title
-    let taskTitle = document.createElement("h1");
-    taskTitle.textContent = task.title;
+    
+    cardTitle.textContent = task.title;
     switch (task.priority) {
         case "low":
-            taskTitle.style.backgroundColor = "green";
+            cardTitle.style.backgroundColor = "green";
             break;
         case "medium":
-            taskTitle.style.backgroundColor = "orange";
+            cardTitle.style.backgroundColor = "orange";
             break;
         case "high":
-            taskTitle.style.backgroundColor = "red";
+            cardTitle.style.backgroundColor = "red";
             break;
     }
-    cardTitle.appendChild(taskTitle);
+    
     // Due Date
-    let taskDate = document.createElement("p");
-    taskDate.textContent = format(task.dueDate, "dd/MM/yyyy");
+    cardDate.textContent = format(task.dueDate, "dd/MM/yyyy");
     if (isPast(task.dueDate)) {
-        taskDate.classList.add("overdue");
+        cardDate.classList.add("overdue");
+    } else {
+        cardDate.classList.remove("overdue");
     }
-    cardDate.appendChild(taskDate);
+
     // Priority
-    let taskPriority = document.createElement("p");
-    taskPriority.textContent = task.priority;
-    cardPriority.appendChild(taskPriority);
+    cardPriority.textContent = task.priority;
+    
     // Notes
-    let taskNotes = document.createElement("p");
-    taskNotes.textContent = task.notes;
-    cardNotes.appendChild(taskNotes);
+    cardNotes.textContent = task.notes;
+    
     // Completion
-    let taskCheck = document.createElement("p");
-    taskCheck.textContent = task.check;
-    cardCheck.appendChild(taskCheck);
+    cardCheck.textContent = task.check;
+    
     if (task.check) {
         taskWindow.classList.add("completed");
     } else {

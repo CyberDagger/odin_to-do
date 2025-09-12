@@ -6,6 +6,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 3fr;
+    background-color: gainsboro;
 }
 
 .sidebar {
@@ -100,35 +101,59 @@ body {
     }
 }
 
-.task-block {
-    outline: 3px solid black;
-    border-left: 80px solid black;
-    border-right: 0px solid transparent;
-    border-radius: 2rem / 4rem;
-    margin: 0.5rem;
+#content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 80px;
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    padding: 16px;
+    gap: 16px;
+}
+
+.task-block {
+    border-radius: 2rem / 4rem;
+    box-shadow: 3px 5px 5px, 0px -3px white;
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 1fr 80px;
     grid-template-rows: auto auto auto;
     justify-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 0;
     background-color: whitesmoke;
     &.completed {
         background-color: lightgray;
     }
+    > .block-priority {
+        grid-column: 1/2;
+        grid-row: 1/4;
+        height: 100%;
+        width: 100%;
+        border-top-left-radius: 2rem 4rem;
+        border-bottom-left-radius: 2rem 4rem;
+        &.block-priority-low {
+            background-color: green;
+            box-shadow: 0px -3px lightgreen;
+        }
+        &.block-priority-medium {
+            background-color: orange;
+            box-shadow: 0px -3px gold;
+        }
+        &.block-priority-high {
+            background-color: red;
+            box-shadow: 0px -3px coral;
+        }
+    }
     > .block-title {
-        grid-column: 1/4;
+        grid-column: 2/5;
     }
     > p {
         font-weight: bold;
     }
     > .block-date {
         grid-row: 2/3;
-        grid-column: 2/3;
+        grid-column: 3/4;
     }
     > .check-complete {
         grid-row: 2/3;
-        grid-column: 4/5;
+        grid-column: 5/6;
         justify-self: left;
         appearance: none;
         border: 2px solid black;
@@ -144,9 +169,10 @@ body {
         }
     }
     > .block-buttons {
-        grid-column: 2/3;
+        grid-column: 3/4;
         grid-row: 3/4;
         width: 100%;
+        margin: 0.5rem;
         display: flex;
         justify-content: space-evenly;
         > button {
@@ -171,7 +197,7 @@ dialog {
     background-color: whitesmoke;
     border-radius: 16px;
     &.completed {
-        background-color: slategray;
+        background-color: lightgray;
     }
 }
 
@@ -179,7 +205,7 @@ dialog {
     width: 800px;
     display: grid;
     grid-template-columns: 48px auto 48px;
-    grid-template-rows: auto(6);
+    grid-template-rows: repeat(6, auto);
     justify-items: center;
     > #card-title {
         width: 100%;

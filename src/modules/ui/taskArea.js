@@ -27,6 +27,24 @@ function renderTasks(project) {
             taskTitle.textContent = project.taskList[i].title;
             taskTitle.classList.add("block-title");
             taskBlock.appendChild(taskTitle);
+            // Priority
+            let taskPriority = document.createElement("div");
+            taskPriority.classList.add("block-priority");
+            switch (project.taskList[i].priority) {
+                case "low":
+                    taskPriority.style.backgroundColor = "green";
+                    taskPriority.classList.add("block-priority-low");
+                    break;
+                case "medium":
+                    taskPriority.style.backgroundColor = "orange";
+                    taskPriority.classList.add("block-priority-medium");
+                    break;
+                case "high":
+                    taskPriority.style.backgroundColor = "red";
+                    taskPriority.classList.add("block-priority-high");
+                    break;
+            }
+            taskBlock.appendChild(taskPriority);
             // Due Date
             let taskDate = document.createElement("p");
             taskDate.classList.add("block-date");
@@ -36,18 +54,7 @@ function renderTasks(project) {
                 taskDate.classList.add("overdue");
             }
             taskBlock.appendChild(taskDate);
-            // Priority
-            switch (project.taskList[i].priority) {
-                case "low":
-                    taskBlock.style.borderLeftColor = "green";
-                    break;
-                case "medium":
-                    taskBlock.style.borderLeftColor = "orange";
-                    break;
-                case "high":
-                    taskBlock.style.borderLeftColor = "red";
-                    break;
-            }
+            
             // Completed
             let taskCheck = document.createElement("input");
             taskCheck.type = "checkbox";

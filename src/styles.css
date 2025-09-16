@@ -228,8 +228,27 @@ dialog {
         grid-column: 1/4;
         min-height: 5rem;
     }
-    > #card-check {
+    > #card-complete {
         grid-column: 2/3;
+        display: flex;
+        align-items: center;
+        margin: 0.5rem;
+        gap: 0.5rem;
+        font-weight: bold;
+        > #card-check {
+            appearance: none;
+            border: 2px solid black;
+            height: 1.5rem;
+            width: 1.5rem;
+            background-color: white;
+            &:checked {
+                background-color: lightblue;
+                background-image: url("./assets/images/confirm.svg");
+            }
+            &:hover {
+                background-color: lightgray;
+            }
+        }
     }
     > #button-close-task {
         grid-column: 3/4;

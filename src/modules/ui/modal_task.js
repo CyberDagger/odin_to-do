@@ -1,4 +1,6 @@
 import { format, isPast } from "date-fns";
+import { root } from "../structure.js";
+import { renderTasks } from "./taskArea";
 
 const taskWindow = document.querySelector("#view-task");
 const cardTitle = document.querySelector("#card-title");
@@ -9,6 +11,18 @@ const cardCheck = document.querySelector("#card-check");
 const btnCloseTask = document.querySelector("#button-close-task");
 
 btnCloseTask.addEventListener("click", () => taskWindow.close());
+
+cardCheck.addEventListener("click", (e) => {
+    let taskID = e.currentTarget.dataset.id;
+    let task = root.currentProject.taskList.find(i => i.id === taskID);
+    task.check = !task.check;
+    if (task.check) {
+        taskWindow.classList.add("completed");
+    } else {
+        taskWindow.classList.remove("completed");
+    }
+    renderTasks(root.currentProject);
+})
 
 function clearTaskWindow() {
     cardTitle.innerHTML = "";
@@ -53,7 +67,12 @@ function renderTaskWindow(project, taskID) {
     cardNotes.textContent = task.notes;
     
     // Completion
-    cardCheck.textContent = task.check;
+    cardCheck.setAttribute("data-id", task.id);
+    if (task.check) {
+        cardCheck.checked = true;
+    } else {
+        cardCheck.checked = false;
+    }
     
     if (task.check) {
         taskWindow.classList.add("completed");

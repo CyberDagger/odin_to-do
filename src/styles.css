@@ -239,8 +239,8 @@ dialog {
         > #card-check {
             appearance: none;
             border: 2px solid black;
-            height: 1.5rem;
-            width: 1.5rem;
+            height: 2rem;
+            width: 2rem;
             background-color: white;
             &:checked {
                 background-color: lightblue;

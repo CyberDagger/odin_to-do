@@ -68,6 +68,7 @@
 
     <dialog id="new-task">
         <form id="new-task-card" action="">
+            <h1 id="new-task-title">New Task</h1>
             <label for="task-name">Task Name:</label>
             <input type="text" id="task-name" name="task-name">
             <label for="task-date">Due Date:</label>
@@ -80,10 +81,8 @@
             </select>
             <label for="task-notes">Notes:</label>
             <textarea id="task-notes" name="task-notes"></textarea>
-            <div id="create-task-buttons">
-                <button type="submit" id="new-task-submit">Create Task</button>
-                <button type="button" id="new-task-cancel">Cancel</button>
-            </div>
+            <button type="submit" id="new-task-submit"></button>
+            <button type="button" id="new-task-cancel"></button>
         </form>
     </dialog>
 

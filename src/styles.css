@@ -352,7 +352,52 @@ dialog {
     }
 }
 
-#new-task-card, #edit-task-card {
+#new-task-card {
+    width: 800px;
+    display: grid;
+    grid-template-columns: 48px 6rem auto 48px;
+    grid-template-rows: repeat(6, auto);
+    gap: 0.5em;
+    > #new-task-title {
+        grid-column: 1/5;
+        grid-row: 1/2;
+        text-align: center;
+        background-color: lightgray;
+    }
+    > label {
+        grid-column: 2/3;
+        font-weight: bold;
+        align-self: center;
+    }
+    > input {
+        grid-column: 3/4;
+    }
+    > #new-task-submit {
+        grid-column: 2/4;
+        grid-row: 6/7;
+        justify-self: center;
+        background-image: url("./assets/images/confirm.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 2em;
+        width: 2em;
+        margin-bottom: 0.5em;
+    }
+    > #new-task-cancel {
+        grid-column: 4/5;
+        grid-row: 1/2;
+        width: 32px;
+        height: 32px;
+        align-self: center;
+        background-color: transparent;
+        background-image: url("./assets/images/cancel.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+    }
+}
+
+#edit-task-card {
     display: grid;
     grid-template-columns: auto auto;
 }

@@ -7,13 +7,16 @@ const renameProjectForm = document.querySelector("#rename-project-card");
 const fieldRenameProjectName = document.querySelector("#rename-project-name");
 const btnCancelRenameProject = document.querySelector("#rename-project-cancel");
 
-function renderRenameProject() {
+function renderRenameProject(projectID) {
+    renameProjectForm.setAttribute("data-id", projectID);
     renameProject.showModal();
 }
 
 renameProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    root.currentProject.name = fieldRenameProjectName.value;
+    let projectID = renameProjectForm.dataset.id;
+    let project = root.projectList.find(i => i.id === projectID);
+    project.name = fieldRenameProjectName.value;
     localStorage.setItem("saved", JSON.stringify(root));
     renderProjects();
     renderHeaderProject();

@@ -6,14 +6,16 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    background-color: gainsboro;
+    background-color: whitesmoke;
 }
 
 .sidebar {
-    background-color: lightskyblue;
+    background-color: lightgray;
     display: grid;
     grid-template-rows: 3rem 3rem auto;
     gap: 1rem;
+    z-index: 1;
+    box-shadow: 3px 0px 5px;
 }
 
 .logo-area {
@@ -45,20 +47,30 @@ body {
     list-style-type: none;
     margin-bottom: 1rem;
     padding: 0;
-    background-color: slateblue;
+    background-color: gray;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 8px;
+    border-radius: 1em;
+    box-shadow: 2px 3px 3px inset;
     > li {
         height: 2.5rem;
         padding: 0.5rem;
-        display: flex;
-        align-items: center;
+        display: grid;
+        grid-template-columns: auto 2em 2em;
+        align-content: center;
         gap: 1rem;
+        background-color: lightgray;
+        border-radius: 1em / 2em;
+        box-shadow: 2px 3px 3px, 0px 2px whitesmoke inset;
         > .project-select {
-            color: white;
             font-size: 1.2rem;
             font-weight: bold;
             background-color: transparent;
             border: none;
+            justify-self: left;
         }
         > .project-edit {
             background-image: url("./assets/images/edit.svg");
@@ -66,6 +78,7 @@ body {
             background-position: center;
             height: 2rem;
             width: 2rem;
+            border-radius: 0.5em;
         }
         > .project-delete {
             background-image: url("./assets/images/delete.svg");
@@ -73,18 +86,13 @@ body {
             background-position: center;
             height: 2rem;
             width: 2rem;
+            border-radius: 0.5em;
         }
-    }
-    > li:nth-child(odd) {
-        background-color: darkslategray;
-    }
-    > li:nth-child(even) {
-        background-color: lightslategray;
     }
 }
 
 .header {
-    background-color: lightblue;
+    background-color: gainsboro;
     padding: 0 1rem 1rem 1rem;
     display: grid;
     grid-template-columns: auto;
@@ -92,6 +100,7 @@ body {
     justify-content: start;
     column-gap: 1rem;
     row-gap: 0.5rem;
+    box-shadow: 3px 5px 5px;
     > button {
         justify-self: center;
         background-color: slateblue;
@@ -115,7 +124,7 @@ body {
 
 .task-block {
     border-radius: 2rem / 4rem;
-    box-shadow: 3px 5px 5px, 0px -3px white;
+    box-shadow: 3px 5px 5px, 0px 3px white inset;
     display: grid;
     grid-template-columns: 80px 1fr 1fr 1fr 80px;
     grid-template-rows: auto auto auto;
@@ -123,7 +132,7 @@ body {
     gap: 0.5rem;
     background-color: whitesmoke;
     &.completed {
-        background-color: lightgray;
+        background-image: linear-gradient(whitesmoke, whitesmoke 30%, lightgray 35%, lightgray 65%, whitesmoke 70%);
     }
     > .block-priority {
         grid-column: 1/2;
@@ -134,15 +143,24 @@ body {
         border-bottom-left-radius: 2rem 4rem;
         &.block-priority-low {
             background-color: green;
-            box-shadow: 0px -3px lightgreen;
+            box-shadow: 0px 3px lightgreen inset;
+            &.completed {
+                background-image: linear-gradient(green, green 30%, darkgreen 35%, darkgreen 65%, green 70%);
+            }
         }
         &.block-priority-medium {
             background-color: orange;
-            box-shadow: 0px -3px gold;
+            box-shadow: 0px 3px gold inset;
+            &.completed {
+                background-image: linear-gradient(orange, orange 30%, darkorange 35%, darkorange 65%, orange 70%);
+            }
         }
         &.block-priority-high {
             background-color: red;
-            box-shadow: 0px -3px coral;
+            box-shadow: 0px 3px coral inset;
+            &.completed {
+                background-image: linear-gradient(red, red 30%, darkred 35%, darkred 65%, red 70%);
+            }
         }
     }
     > .block-title {
@@ -165,6 +183,7 @@ body {
         height: 2rem;
         width: 2rem;
         background-color: white;
+        border-radius: 0.5em;
         &:checked {
             background-color: lightblue;
             background-image: url("./assets/images/confirm.svg");
@@ -185,6 +204,7 @@ body {
             background-position: center;
             height: 2rem;
             width: 2rem;
+            border-radius: 0.5em;
         }
         > .block-button-edit {
             background-image: url("./assets/images/edit.svg");
@@ -201,9 +221,6 @@ dialog {
     padding: 0;
     background-color: whitesmoke;
     border-radius: 16px;
-    &.completed {
-        background-color: lightgray;
-    }
 }
 
 #task-card {
@@ -212,6 +229,9 @@ dialog {
     grid-template-columns: 48px auto 48px;
     grid-template-rows: repeat(6, auto);
     justify-items: center;
+    &.completed {
+        background-image: linear-gradient(whitesmoke, whitesmoke 30%, lightgray 35%, lightgray 65%, whitesmoke 70%);
+    }
     > #card-title {
         width: 100%;
         text-align: center;
@@ -246,6 +266,7 @@ dialog {
             height: 2rem;
             width: 2rem;
             background-color: white;
+            border-radius: 0.5em;
             &:checked {
                 background-color: lightblue;
                 background-image: url("./assets/images/confirm.svg");
@@ -298,6 +319,7 @@ dialog {
         height: 2rem;
         width: 2rem;
         margin-bottom: 0.5em;
+        border-radius: 0.5em;
     }
     > #new-project-cancel {
         grid-column: 3/4;
@@ -387,6 +409,7 @@ dialog {
         height: 2em;
         width: 2em;
         margin-bottom: 0.5em;
+        border-radius: 0.5em;
     }
     > #new-task-cancel {
         grid-column: 4/5;
@@ -432,6 +455,7 @@ dialog {
         height: 2em;
         width: 2em;
         margin-bottom: 0.5em;
+        border-radius: 0.5em;
     }
     > #edit-task-cancel {
         grid-column: 4/5;

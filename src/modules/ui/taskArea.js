@@ -32,17 +32,17 @@ function renderTasks(project) {
             taskPriority.classList.add("block-priority");
             switch (project.taskList[i].priority) {
                 case "low":
-                    taskPriority.style.backgroundColor = "green";
                     taskPriority.classList.add("block-priority-low");
                     break;
                 case "medium":
-                    taskPriority.style.backgroundColor = "orange";
                     taskPriority.classList.add("block-priority-medium");
                     break;
                 case "high":
-                    taskPriority.style.backgroundColor = "red";
                     taskPriority.classList.add("block-priority-high");
                     break;
+            }
+            if (project.taskList[i].check) {
+                taskPriority.classList.add("completed");
             }
             taskBlock.appendChild(taskPriority);
             // Due Date

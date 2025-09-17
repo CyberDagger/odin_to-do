@@ -3,6 +3,7 @@ import { root } from "../structure.js";
 import { renderTasks } from "./taskArea";
 
 const taskWindow = document.querySelector("#view-task");
+const taskContent = document.querySelector("#task-card");
 const cardTitle = document.querySelector("#card-title");
 const cardDate = document.querySelector("#card-date");
 const cardPriority = document.querySelector("#card-priority");
@@ -17,9 +18,9 @@ cardCheck.addEventListener("click", (e) => {
     let task = root.currentProject.taskList.find(i => i.id === taskID);
     task.check = !task.check;
     if (task.check) {
-        taskWindow.classList.add("completed");
+        taskContent.classList.add("completed");
     } else {
-        taskWindow.classList.remove("completed");
+        taskContent.classList.remove("completed");
     }
     renderTasks(root.currentProject);
 })
@@ -75,9 +76,9 @@ function renderTaskWindow(project, taskID) {
     }
     
     if (task.check) {
-        taskWindow.classList.add("completed");
+        taskContent.classList.add("completed");
     } else {
-        taskWindow.classList.remove("completed");
+        taskContent.classList.remove("completed");
     }
     taskWindow.showModal();
 }

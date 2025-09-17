@@ -264,6 +264,47 @@ dialog {
     }
 }
 
+#new-project-card {
+    display: grid;
+    grid-template-columns: 48px auto 48px;
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
+    gap: 0.5em;
+    > #new-project-title {
+        width: 100%;
+        text-align: center;
+        background-color: lightgray;
+        grid-column: 1/4;
+        grid-row: 1/2;
+    }
+    > #new-project-name-field {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    > #new-project-submit {
+        grid-column: 2/3;
+        grid-row: 3/4;
+        background-image: url("./assets/images/confirm.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 2rem;
+        width: 2rem;
+        margin-bottom: 0.5em;
+    }
+    > #new-project-cancel {
+        grid-column: 3/4;
+        grid-row: 1/2;
+        width: 32px;
+        height: 32px;
+        align-self: center;
+        background-color: transparent;
+        background-image: url("./assets/images/cancel.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+    }
+}
+
 #new-task-card, #edit-task-card {
     display: grid;
     grid-template-columns: auto auto;

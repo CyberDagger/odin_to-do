@@ -5,7 +5,8 @@
 body {
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 8em auto;
     background-color: whitesmoke;
 }
 
@@ -14,6 +15,8 @@ button {
 }
 
 .sidebar {
+    grid-column: 1/2;
+    grid-row: 1/3;
     background-color: lightgray;
     display: grid;
     grid-template-rows: 3rem 3rem auto;
@@ -27,6 +30,7 @@ button {
     display: flex;
     justify-content: start;
     align-items: center;
+    margin: 0 1em;
     gap: 0.5rem;
     > h1 {
         font-size: 2.5rem;
@@ -53,8 +57,10 @@ button {
     padding: 0;
     background-color: gray;
     width: 80%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    align-content: start;
     gap: 16px;
     padding: 16px 8px;
     border-radius: 1em;
@@ -101,12 +107,14 @@ button {
 .header {
     background-color: gainsboro;
     padding: 0 1rem 1rem 1rem;
+    grid-column: 2/3;
+    grid-row: 1/2;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: 3rem 3rem;
     justify-content: start;
-    column-gap: 1rem;
-    row-gap: 0.5rem;
+    align-content: end;
+    row-gap: 0.4rem;
     box-shadow: 3px 5px 5px;
     > button {
         justify-self: center;
@@ -114,7 +122,7 @@ button {
         color: white;
         font-size: 1.2rem;
         font-weight: bold;
-        padding: 0.4rem 1.3rem;
+        padding: 0.2rem 1.3rem;
         border-radius: 1em / 2em;
         &:disabled {
             visibility: hidden;
@@ -123,9 +131,12 @@ button {
 }
 
 #content {
+    grid-column: 2/3;
+    grid-row: 2/3;
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows: auto;
+    align-content: start;
     padding: 16px;
     gap: 16px;
 }

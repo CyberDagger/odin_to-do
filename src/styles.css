@@ -9,6 +9,10 @@ body {
     background-color: whitesmoke;
 }
 
+button {
+    cursor: pointer;
+}
+
 .sidebar {
     background-color: lightgray;
     display: grid;
@@ -39,7 +43,7 @@ body {
     font-weight: bold;
     font-size: 1.2rem;
     padding: 0.5rem 1.5rem;
-    border-radius: 1.2rem;
+    border-radius: 1em / 2em;
 }
 
 #project-list {
@@ -99,7 +103,7 @@ body {
     padding: 0 1rem 1rem 1rem;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
     justify-content: start;
     column-gap: 1rem;
     row-gap: 0.5rem;
@@ -108,9 +112,10 @@ body {
         justify-self: center;
         background-color: slateblue;
         color: white;
+        font-size: 1.2rem;
         font-weight: bold;
         padding: 0.4rem 1.3rem;
-        border-radius: 1rem;
+        border-radius: 1em / 2em;
         &:disabled {
             visibility: hidden;
         }
@@ -135,6 +140,7 @@ body {
     justify-items: center;
     gap: 0.5rem;
     background-color: whitesmoke;
+    cursor: pointer;
     &.completed {
         background-image: linear-gradient(whitesmoke, whitesmoke 30%, lightgray 35%, lightgray 65%, whitesmoke 70%);
     }

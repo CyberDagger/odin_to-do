@@ -153,7 +153,7 @@ button {
     background-color: whitesmoke;
     cursor: pointer;
     &.completed {
-        background-image: linear-gradient(whitesmoke, whitesmoke 30%, lightgray 35%, lightgray 65%, whitesmoke 70%);
+        background-image: linear-gradient(whitesmoke, whitesmoke 5%, lightgray 10%, lightgray 90%, whitesmoke 95%);
     }
     > .block-priority {
         grid-column: 1/2;
@@ -166,21 +166,21 @@ button {
             background-color: green;
             box-shadow: 0px 3px lightgreen inset;
             &.completed {
-                background-image: linear-gradient(green, green 30%, darkgreen 35%, darkgreen 65%, green 70%);
+                background-image: linear-gradient(green, green 5%, darkgreen 10%, darkgreen 90%, green 95%);
             }
         }
         &.block-priority-medium {
             background-color: orange;
             box-shadow: 0px 3px gold inset;
             &.completed {
-                background-image: linear-gradient(orange, orange 30%, darkorange 35%, darkorange 65%, orange 70%);
+                background-image: linear-gradient(orange, orange 5%, darkorange 10%, darkorange 90%, orange 95%);
             }
         }
         &.block-priority-high {
             background-color: red;
             box-shadow: 0px 3px coral inset;
             &.completed {
-                background-image: linear-gradient(red, red 30%, darkred 35%, darkred 65%, red 70%);
+                background-image: linear-gradient(red, red 5%, darkred 10%, darkred 90%, red 95%);
             }
         }
     }
@@ -250,9 +250,6 @@ dialog {
     grid-template-columns: 48px auto 48px;
     grid-template-rows: repeat(6, auto);
     justify-items: center;
-    &.completed {
-        background-image: linear-gradient(whitesmoke, whitesmoke 30%, lightgray 35%, lightgray 65%, whitesmoke 70%);
-    }
     > #card-title {
         width: 100%;
         text-align: center;

@@ -9,6 +9,18 @@
     --gray7: #484c7a;
     --gray8: #36395a;
     --gray9: #23263b;
+
+    --red0: #ee243c;
+    --red1: #d4142a;
+    --red2: #ab1325;
+
+    --yellow0: #FCD34D;
+    --yellow1: #FBBF24;
+    --yellow2: #F59E0B;
+
+    --green0: #238636;
+    --green1: #196c2e;
+    --green2: #0f5323;
 }
 
 * {
@@ -178,24 +190,24 @@ button {
         border-top-left-radius: 2rem 4rem;
         border-bottom-left-radius: 2rem 4rem;
         &.block-priority-low {
-            background-color: green;
-            box-shadow: 0px 3px lightgreen inset;
+            background-color: var(--green1);
+            box-shadow: 0px 3px var(--green0) inset;
             &.completed {
-                background-image: linear-gradient(green, green 5%, darkgreen 10%, darkgreen 90%, green 95%);
+                background-image: linear-gradient(var(--green1), var(--green1) 5%, var(--green2) 10%, var(--green2) 90%, var(--green1) 95%);
             }
         }
         &.block-priority-medium {
-            background-color: orange;
-            box-shadow: 0px 3px gold inset;
+            background-color: var(--yellow1);
+            box-shadow: 0px 3px var(--yellow0) inset;
             &.completed {
-                background-image: linear-gradient(orange, orange 5%, darkorange 10%, darkorange 90%, orange 95%);
+                background-image: linear-gradient(var(--yellow1), var(--yellow1) 5%, var(--yellow2) 10%, var(--yellow2) 90%, var(--yellow1) 95%);
             }
         }
         &.block-priority-high {
-            background-color: red;
-            box-shadow: 0px 3px coral inset;
+            background-color: var(--red1);
+            box-shadow: 0px 3px var(--red0) inset;
             &.completed {
-                background-image: linear-gradient(red, red 5%, darkred 10%, darkred 90%, red 95%);
+                background-image: linear-gradient(var(--red1), var(--red1) 5%, var(--red2) 10%, var(--red2) 90%, var(--red1) 95%);
             }
         }
     }
@@ -271,6 +283,15 @@ dialog {
         background-color: white;
         grid-column: 1/4;
         grid-row: 1/2;
+        &.task-title-high {
+            background-color: var(--red1);
+        }
+        &.task-title-medium {
+            background-color: var(--yellow1);
+        }
+        &.task-title-low {
+            background-color: var(--green1);
+        }
     }
     > #card-date {
         grid-column: 2/3;

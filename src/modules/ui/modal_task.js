@@ -41,13 +41,19 @@ function renderTaskWindow(project, taskID) {
     cardTitle.textContent = task.title;
     switch (task.priority) {
         case "low":
-            cardTitle.style.backgroundColor = "green";
+            cardTitle.classList.add("task-title-low");
+            cardTitle.classList.remove("task-title-medium");
+            cardTitle.classList.remove("task-title-high");
             break;
         case "medium":
-            cardTitle.style.backgroundColor = "orange";
+            cardTitle.classList.remove("task-title-low");
+            cardTitle.classList.add("task-title-medium");
+            cardTitle.classList.remove("task-title-high");
             break;
         case "high":
-            cardTitle.style.backgroundColor = "red";
+            cardTitle.classList.remove("task-title-low");
+            cardTitle.classList.remove("task-title-medium");
+            cardTitle.classList.add("task-title-high");
             break;
     }
     

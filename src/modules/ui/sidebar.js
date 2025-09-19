@@ -3,6 +3,7 @@ import { renderNewProject } from "./modal_newProject.js";
 import { renderHeaderProject } from "./header.js";
 import { renderTasks } from "./taskArea.js";
 import { renderRenameProject } from "./modal_renameProject.js";
+import { renderDeleteProject} from "./modal_deleteProject.js";
 
 const btnNewProject = document.querySelector("#button-new-project");
 const projectMenu = document.querySelector("#project-list");
@@ -39,8 +40,9 @@ function renderProjects() {
         deleteButton.classList.add("project-delete");
         deleteButton.setAttribute("data-id", root.projectList[i].id);
         deleteButton.addEventListener("click", (e) => {
-            root.deleteProject(e.currentTarget.dataset.id);
-            localStorage.setItem("saved", JSON.stringify(root));
+            renderDeleteProject();
+            //root.deleteProject(e.currentTarget.dataset.id);
+            //localStorage.setItem("saved", JSON.stringify(root));
             renderProjects();
             renderTasks(root.currentProject);
             renderHeaderProject();

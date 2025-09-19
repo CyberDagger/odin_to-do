@@ -23,6 +23,6 @@ renameProjectForm.addEventListener("submit", (e) => {
     renameProject.close();
 });
 
-btnCancelRenameProject.addEventListener("click", () => renameProject.close())
+btnCancelRenameProject.addEventListener("click", () => renameProject.close());
 
 export { renderRenameProject };

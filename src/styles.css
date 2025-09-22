@@ -129,7 +129,6 @@ option#pri-low {
         background-clip: content-box;
         border: 4px solid transparent;
         border-radius: 10px;
-        
     }
     > li {
         height: 2.5rem;
@@ -201,12 +200,27 @@ option#pri-low {
 #content {
     grid-column: 2/3;
     grid-row: 2/3;
+    height: 100%;
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows: auto;
     align-content: start;
     padding: 16px;
     gap: 16px;
+    overflow-y: scroll;
+    scrollbar-gutter: stable both-edges;
+    &::-webkit-scrollbar {
+        width: 24px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--gray5);
+        background-clip: content-box;
+        border: 6px solid transparent;
+        border-radius: 12px;
+    }
 }
 
 .task-block {

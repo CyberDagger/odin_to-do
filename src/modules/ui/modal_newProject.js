@@ -9,6 +9,7 @@ const fieldProjectName = document.querySelector("#new-project-name");
 const btnCancelProject = document.querySelector("#new-project-cancel");
 
 function renderNewProject() {
+    fieldProjectName.value = "";
     newProject.showModal();
 }
 

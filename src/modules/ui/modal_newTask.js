@@ -27,6 +27,11 @@ fieldTaskPriority.addEventListener("change", function() {
 fieldTaskPriority.dispatchEvent(new Event("change"));
 
 function renderNewTask() {
+    fieldTaskName.value = "";
+    fieldTaskDate.value = "";
+    fieldTaskPriority.value = "high";
+    fieldTaskPriority.dispatchEvent(new Event("change"));
+    fieldTaskNotes.value = "";
     newTask.showModal();
 }
 

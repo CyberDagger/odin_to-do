@@ -580,6 +580,60 @@ dialog {
     }
 }
 
+#delete-task-card {
+    display: grid;
+    grid-template-columns: 48px auto 48px;
+    grid-template-rows: repeat(4, auto);
+    justify-items: center;
+    gap: 0.5em;
+    > #delete-task-title {
+        width: 100%;
+        text-align: center;
+        background-color: var(--gray6);
+        grid-column: 1/4;
+        grid-row: 1/2;
+    }
+    > #delete-task-blurb {
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    > #delete-task-question {
+        grid-column: 2/3;
+        grid-row: 3/4;
+    }
+    > #delete-task-buttons {
+        grid-column: 2/3;
+        grid-row: 4/5;
+        > #delete-task-confirm {
+            background-image: url("./assets/images/confirm.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 2em;
+            width: 2em;
+            margin-bottom: 0.5em;
+        }
+        > #delete-task-cancel {
+            background-image: url("./assets/images/cancel.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 2em;
+            width: 2em;
+            margin-bottom: 0.5em;
+        }
+    }
+    > #delete-task-close {
+        grid-column: 3/4;
+        grid-row: 1/2;
+        width: 32px;
+        height: 32px;
+        align-self: center;
+        background-color: transparent;
+        background-image: url("./assets/images/cancel.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+    }
+}
 
 #create-task-buttons, #edit-task-buttons {
     grid-column: 1/3;

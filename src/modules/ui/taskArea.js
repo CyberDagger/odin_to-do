@@ -2,10 +2,7 @@ import { root } from "../structure.js";
 import { format, isPast } from "date-fns";
 import { renderTaskWindow } from "./modal_task.js";
 import { renderTaskEdit } from "./modal_editTask.js";
-
-import img_priorityLow from "../../assets/images/priority_low.svg";
-import img_priorityMed from "../../assets/images/priority_med.svg";
-import img_priorityHigh from "../../assets/images/priority_high.svg";
+import { renderDeleteTask } from "./modal_deleteTask.js";
 
 const taskField = document.querySelector("#content");
 
@@ -87,9 +84,8 @@ function renderTasks(project) {
             taskDelete.setAttribute("data-id", project.taskList[i].id);
             taskDelete.addEventListener("click", (e) => {
                 e.stopPropagation();
-                root.currentProject.removeTask(e.currentTarget.dataset.id);
-                localStorage.setItem("saved", JSON.stringify(root));
-                renderTasks(root.currentProject);
+                //root.currentProject.removeTask(e.currentTarget.dataset.id);
+                renderDeleteTask(root.currentProject, e.currentTarget.dataset.id);
             });
             taskButtons.appendChild(taskDelete);
             taskBlock.appendChild(taskButtons);

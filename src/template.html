@@ -39,7 +39,7 @@
             <h1 id="new-project-title">New Project</h1>
             <div id="new-project-name-field">
                 <label for="new-project-name">Project Name:</label>
-                <input type="text" id="new-project-name" name="new-project-name">
+                <input type="text" id="new-project-name" name="new-project-name" required>
             </div>
             <button type="submit" id="new-project-submit"></button>
             <button type="button" id="new-project-cancel"></button>
@@ -51,7 +51,7 @@
             <h1 id="rename-project-title">Rename Project</h1>
             <div id="rename-project-name-field">
                 <label for="rename-project-name">Project Name:</label>
-                <input type="text" id="rename-project-name" name="rename-project-name">
+                <input type="text" id="rename-project-name" name="rename-project-name" required>
             </div>
             <button type="submit" id="rename-project-submit"></button>
             <button type="button" id="rename-project-cancel"></button>
@@ -75,9 +75,9 @@
         <form id="new-task-card" action="">
             <h1 id="new-task-title">New Task</h1>
             <label for="task-name">Task Name:</label>
-            <input type="text" id="task-name" name="task-name">
+            <input type="text" id="task-name" name="task-name" required>
             <label for="task-date">Due Date:</label>
-            <input type="date" id="task-date" name="task-date" data-date-format="DD/MM/YYYY">
+            <input type="date" id="task-date" name="task-date" data-date-format="DD/MM/YYYY" required>
             <label for="task-priority">Priority:</label>
             <select id="task-priority" name="task-priority">
                 <option value="high" id="pri-high">High</option>
@@ -95,9 +95,9 @@
         <form id="edit-task-card" action="">
             <h1 id="edit-task-title">Edit Task</h1>
             <label for="edit-task-name">Task Name:</label>
-            <input type="text" id="edit-task-name" name="edit-task-name">
+            <input type="text" id="edit-task-name" name="edit-task-name" required>
             <label for="edit-task-date">Due Date:</label>
-            <input type="date" id="edit-task-date" name="edit-task-date">
+            <input type="date" id="edit-task-date" name="edit-task-date" required>
             <label for="edit-task-priority">Priority:</label>
             <select id="edit-task-priority" name="edit-task-priority">
                 <option value="high" id="pri-high">High</option>

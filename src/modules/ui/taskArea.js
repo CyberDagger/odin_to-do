@@ -84,7 +84,6 @@ function renderTasks(project) {
             taskDelete.setAttribute("data-id", project.taskList[i].id);
             taskDelete.addEventListener("click", (e) => {
                 e.stopPropagation();
-                //root.currentProject.removeTask(e.currentTarget.dataset.id);
                 renderDeleteTask(root.currentProject, e.currentTarget.dataset.id);
             });
             taskButtons.appendChild(taskDelete);

@@ -25,6 +25,9 @@
     --green0: #238636;
     --green1: #196c2e;
     --green2: #0f5323;
+
+    --blue0: #c2e0ef;
+    --blue1: #94c1df;
 }
 
 * {
@@ -36,7 +39,6 @@ body {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 8em auto;
-    background-color: var(--gray2);
 }
 
 button {
@@ -60,6 +62,10 @@ option#pri-low {
     color: red;
 }
 
+input, select, textarea{
+    background-color: var(--gray1);
+}
+
 /*----------------*/
 /* MAIN INTERFACE */
 /*----------------*/
@@ -71,7 +77,7 @@ option#pri-low {
     display: grid;
     grid-template-rows: 3rem 3rem calc(100vh - 9rem);
     gap: 1rem;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 3px 0px 5px;
 }
 
@@ -153,6 +159,7 @@ option#pri-low {
             padding: 0;
         }
         > .project-edit {
+            background-color: var(--gray2);
             background-image: url("./assets/images/edit.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -161,6 +168,7 @@ option#pri-low {
             border-radius: 0.5em;
         }
         > .project-delete {
+            background-color: var(--gray2);
             background-image: url("./assets/images/delete.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -176,6 +184,7 @@ option#pri-low {
     padding: 0 1rem 1rem 1rem;
     grid-column: 2/3;
     grid-row: 1/2;
+    z-index: 1;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 3rem 3rem;
@@ -207,6 +216,10 @@ option#pri-low {
     align-content: start;
     padding: 16px;
     gap: 16px;
+    background-color: var(--gray2);
+    &.unselected {
+        background-color: var(--gray3);
+    }
     overflow-y: scroll;
     scrollbar-gutter: stable both-edges;
     &::-webkit-scrollbar {
@@ -285,14 +298,14 @@ option#pri-low {
         border: 2px solid black;
         height: 2rem;
         width: 2rem;
-        background-color: white;
+        background-color: transparent;
         border-radius: 0.5em;
         &:checked {
-            background-color: lightblue;
+            background-color: var(--blue1);
             background-image: url("./assets/images/confirm.svg");
         }
         &:hover {
-            background-color: lightgray;
+            background-color: var(--blue0);
         }
     }
     > .block-buttons {
@@ -303,6 +316,7 @@ option#pri-low {
         display: flex;
         justify-content: space-evenly;
         > button {
+            background-color: var(--gray2);
             background-repeat: no-repeat;
             background-position: center;
             height: 2rem;
@@ -361,7 +375,7 @@ dialog {
         font-weight: bold;
     }
     > #card-notes {
-        background-color: lightgrey;
+        background-color: var(--gray2);
         width: calc(100% - 32px);
         grid-column: 1/4;
         min-height: 5rem;
@@ -380,14 +394,14 @@ dialog {
             border: 2px solid black;
             height: 2rem;
             width: 2rem;
-            background-color: white;
+            background-color: transparent;
             border-radius: 0.5em;
             &:checked {
-                background-color: lightblue;
+                background-color: var(--blue1);
                 background-image: url("./assets/images/confirm.svg");
             }
             &:hover {
-                background-color: lightgray;
+                background-color:  var(--blue0);
             }
         }
     }
@@ -429,6 +443,7 @@ dialog {
     > #new-project-submit {
         grid-column: 2/3;
         grid-row: 3/4;
+        background-color: var(--gray2);
         background-image: url("./assets/images/confirm.svg");
         background-repeat: no-repeat;
         background-position: center;
@@ -475,6 +490,7 @@ dialog {
     > #rename-project-submit {
         grid-column: 2/3;
         grid-row: 3/4;
+        background-color: var(--gray2);
         background-image: url("./assets/images/confirm.svg");
         background-repeat: no-repeat;
         background-position: center;
@@ -523,6 +539,7 @@ dialog {
         grid-column: 2/3;
         grid-row: 4/5;
         > #delete-project-confirm {
+            background-color: var(--gray2);
             background-image: url("./assets/images/confirm.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -532,6 +549,7 @@ dialog {
             margin-bottom: 0.5em;
         }
         > #delete-project-cancel {
+            background-color: var(--gray2);
             background-image: url("./assets/images/cancel.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -579,6 +597,7 @@ dialog {
         grid-column: 2/4;
         grid-row: 6/7;
         justify-self: center;
+        background-color: var(--gray2);
         background-image: url("./assets/images/confirm.svg");
         background-repeat: no-repeat;
         background-position: center;
@@ -625,6 +644,7 @@ dialog {
         grid-column: 2/4;
         grid-row: 6/7;
         justify-self: center;
+        background-color: var(--gray2);
         background-image: url("./assets/images/confirm.svg");
         background-repeat: no-repeat;
         background-position: center;
@@ -673,6 +693,7 @@ dialog {
         grid-column: 2/3;
         grid-row: 4/5;
         > #delete-task-confirm {
+            background-color: var(--gray2);
             background-image: url("./assets/images/confirm.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -682,6 +703,7 @@ dialog {
             margin-bottom: 0.5em;
         }
         > #delete-task-cancel {
+            background-color: var(--gray2);
             background-image: url("./assets/images/cancel.svg");
             background-repeat: no-repeat;
             background-position: center;

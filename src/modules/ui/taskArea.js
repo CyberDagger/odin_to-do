@@ -14,6 +14,7 @@ function renderTasks(project) {
     clearTasks();
 
     if (root.currentProject != null) {
+        taskField.classList.remove("unselected");
         for (let i = 0; i < project.taskList.length; i++) {
             let taskBlock = document.createElement("div");
             taskBlock.classList.add("task-block");
@@ -93,10 +94,13 @@ function renderTasks(project) {
                 taskBlock.classList.add("completed");
             }
 
-            taskBlock.addEventListener("click", (e) => renderTaskWindow(project, e.currentTarget.dataset.id));
+            taskBlock.addEventListener("click", (e) => {renderTaskWindow(project, e.currentTarget.dataset.id)});
 
             taskField.appendChild(taskBlock);
         }
+    }
+    else {
+        taskField.classList.add("unselected");
     }
 }
 

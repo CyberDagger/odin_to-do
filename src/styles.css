@@ -104,6 +104,12 @@ input, select, textarea{
     font-size: 1.2rem;
     padding: 0.5rem 1.5rem;
     border-radius: 1em / 2em;
+    &:hover {
+        background-color: var(--gray6);
+    }
+    &:active {
+        background-color: var(--gray8);
+    }
 }
 
 #project-list {
@@ -159,22 +165,34 @@ input, select, textarea{
             padding: 0;
         }
         > .project-edit {
-            background-color: var(--gray2);
+            background-color: var(--gray3);
             background-image: url("./assets/images/edit.svg");
             background-repeat: no-repeat;
             background-position: center;
             height: 2rem;
             width: 2rem;
             border-radius: 0.5em;
+            &:hover {
+                background-color: var(--gray2);
+            }
+            &:active {
+                background-color: var(--gray4);
+            }
         }
         > .project-delete {
-            background-color: var(--gray2);
+            background-color: var(--gray3);
             background-image: url("./assets/images/delete.svg");
             background-repeat: no-repeat;
             background-position: center;
             height: 2rem;
             width: 2rem;
             border-radius: 0.5em;
+            &:hover {
+                background-color: var(--gray2);
+            }
+            &:active {
+                background-color: var(--gray4);
+            }
         }
     }
 }
@@ -200,6 +218,12 @@ input, select, textarea{
         font-weight: bold;
         padding: 0.2rem 1.3rem;
         border-radius: 1em / 2em;
+        &:hover {
+            background-color: var(--gray6);
+        }
+        &:active {
+            background-color: var(--gray8);
+        }
         &:disabled {
             visibility: hidden;
         }
@@ -316,12 +340,18 @@ input, select, textarea{
         display: flex;
         justify-content: space-evenly;
         > button {
-            background-color: var(--gray2);
+            background-color: var(--gray3);
             background-repeat: no-repeat;
             background-position: center;
             height: 2rem;
             width: 2rem;
             border-radius: 0.5em;
+            &:hover {
+                background-color: var(--gray2);
+            }
+            &:active {
+                background-color: var(--gray4);
+            }
         }
         > .block-button-edit {
             background-image: url("./assets/images/edit.svg");
@@ -443,7 +473,7 @@ dialog {
     > #new-project-submit {
         grid-column: 2/3;
         grid-row: 3/4;
-        background-color: var(--gray2);
+        background-color: var(--gray3);
         background-image: url("./assets/images/confirm.svg");
         background-repeat: no-repeat;
         background-position: center;
@@ -451,6 +481,12 @@ dialog {
         width: 2rem;
         margin-bottom: 0.5em;
         border-radius: 0.5em;
+        &:hover {
+            background-color: var(--gray2);
+        }
+        &:active {
+            background-color: var(--gray4);
+        }
     }
     > #new-project-cancel {
         grid-column: 3/4;
@@ -490,7 +526,7 @@ dialog {
     > #rename-project-submit {
         grid-column: 2/3;
         grid-row: 3/4;
-        background-color: var(--gray2);
+        background-color: var(--gray3);
         background-image: url("./assets/images/confirm.svg");
         background-repeat: no-repeat;
         background-position: center;
@@ -498,6 +534,12 @@ dialog {
         width: 2em;
         border-radius: 0.5em;
         margin-bottom: 0.5em;
+        &:hover {
+            background-color: var(--gray2);
+        }
+        &:active {
+            background-color: var(--gray4);
+        }
     }
     > #rename-project-cancel {
         grid-column: 3/4;
@@ -539,7 +581,7 @@ dialog {
         grid-column: 2/3;
         grid-row: 4/5;
         > #delete-project-confirm {
-            background-color: var(--gray2);
+            background-color: var(--gray3);
             background-image: url("./assets/images/confirm.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -547,9 +589,15 @@ dialog {
             width: 2em;
             border-radius: 0.5em;
             margin-bottom: 0.5em;
+            &:hover {
+                background-color: var(--gray2);
+            }
+            &:active {
+                background-color: var(--gray4);
+            }
         }
         > #delete-project-cancel {
-            background-color: var(--gray2);
+            background-color: var(--gray3);
             background-image: url("./assets/images/cancel.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -557,6 +605,12 @@ dialog {
             width: 2em;
             border-radius: 0.5em;
             margin-bottom: 0.5em;
+            &:hover {
+                background-color: var(--gray2);
+            }
+            &:active {
+                background-color: var(--gray4);
+            }
         }
     }
     > #delete-project-close {
@@ -597,7 +651,7 @@ dialog {
         grid-column: 2/4;
         grid-row: 6/7;
         justify-self: center;
-        background-color: var(--gray2);
+        background-color: var(--gray3);
         background-image: url("./assets/images/confirm.svg");
         background-repeat: no-repeat;
         background-position: center;
@@ -605,6 +659,12 @@ dialog {
         width: 2em;
         margin-bottom: 0.5em;
         border-radius: 0.5em;
+        &:hover {
+            background-color: var(--gray2);
+        }
+        &:active {
+            background-color: var(--gray4);
+        }
     }
     > #new-task-cancel {
         grid-column: 4/5;
@@ -644,7 +704,7 @@ dialog {
         grid-column: 2/4;
         grid-row: 6/7;
         justify-self: center;
-        background-color: var(--gray2);
+        background-color: var(--gray3);
         background-image: url("./assets/images/confirm.svg");
         background-repeat: no-repeat;
         background-position: center;
@@ -652,6 +712,12 @@ dialog {
         width: 2em;
         margin-bottom: 0.5em;
         border-radius: 0.5em;
+        &:hover {
+            background-color: var(--gray2);
+        }
+        &:active {
+            background-color: var(--gray4);
+            }
     }
     > #edit-task-cancel {
         grid-column: 4/5;
@@ -693,7 +759,7 @@ dialog {
         grid-column: 2/3;
         grid-row: 4/5;
         > #delete-task-confirm {
-            background-color: var(--gray2);
+            background-color: var(--gray3);
             background-image: url("./assets/images/confirm.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -701,9 +767,15 @@ dialog {
             width: 2em;
             border-radius: 0.5em;
             margin-bottom: 0.5em;
+            &:hover {
+                background-color: var(--gray2);
+            }
+            &:active {
+                background-color: var(--gray4);
+            }
         }
         > #delete-task-cancel {
-            background-color: var(--gray2);
+            background-color: var(--gray3);
             background-image: url("./assets/images/cancel.svg");
             background-repeat: no-repeat;
             background-position: center;
@@ -711,6 +783,12 @@ dialog {
             width: 2em;
             border-radius: 0.5em;
             margin-bottom: 0.5em;
+            &:hover {
+                background-color: var(--gray2);
+            }
+            &:active {
+                background-color: var(--gray4);
+            }
         }
     }
     > #delete-task-close {

@@ -37,8 +37,8 @@
 body {
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 8.5rem auto;
+    grid-template-columns: max(25rem, 35vw) auto;
+    grid-template-rows: 9rem auto;
 }
 
 button {
@@ -91,10 +91,10 @@ input, select, textarea{
     margin: 0 10%;
     gap: 0.5rem;
     > h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     > img {
-        height: 3rem;
+        height: 4rem;
     }
 }
 
@@ -121,7 +121,7 @@ input, select, textarea{
     padding: 0;
     background-color: var(--gray2);
     height: 100%;
-    width: 80%;
+    width: min(calc(100% - 2rem), 25rem);
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows: auto;
@@ -210,11 +210,14 @@ input, select, textarea{
     z-index: 1;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 3rem 3rem;
+    grid-template-rows: auto 3rem;
     justify-content: start;
     align-content: end;
     row-gap: 0.4rem;
     box-shadow: 3px 5px 5px;
+    > h1 {
+        font-size: 2.5rem;
+    }
     > button {
         justify-self: start;
         background-color: var(--gray7);
